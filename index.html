@@ -1,0 +1,867 @@
+
+            <!-- Beginning of Site 5 -->
+            <html class="dark" lang="en"><head>
+                <meta charset="utf-8">
+                <meta content="width=device-width, initial-scale=1.0" name="viewport">
+                <title>Szabó Music Company</title>
+                <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+                <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&amp;family=Noto+Sans:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet">
+                <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+                <script>
+                    tailwind.config = {
+                        darkMode: "class",
+                        theme: {
+                            extend: {
+                                colors: {
+                                    "primary": "#1F456E",
+                                    "primary-light": "#2A5B8F",
+                                    "accent": "#C9B07E",
+                                    "background-dark": "#0F1C2C",
+                                    "background-card": "#152436",
+                                    "background-light": "#fafafa",
+                                    "card": "#FFFFFF",
+                                    "card-foreground": "#2D3436",
+                                    "muted-foreground": "#5A6472",
+                                    "primary-site2": "#0A1628",
+                                },
+                                fontFamily: {
+                                    "serif": ["Noto Serif", "serif"],
+                                    "sans": ["Noto Sans", "sans-serif"],
+                                },
+                                borderRadius: {
+                                    "DEFAULT": "0.5rem",
+                                    "lg": "1rem",
+                                    "xl": "1.5rem",
+                                    "full": "9999px"
+                                },
+                            },
+                        },
+                    }
+                </script>
+                <style>
+                body {
+                    font-family: "Noto Sans", sans-serif;
+                }
+                h1, h2, h3, h4, h5, h6 {
+                    font-family: "Noto Serif", serif;
+                }
+                .text-accent-gradient {
+                    background: linear-gradient(135deg, #E6D2A8 0%, #C9B07E 50%, #A68B5B 100%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                    text-fill-color: transparent;
+                }
+                .smooth-hover {
+                    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+                
+                /* Logo Carousel Animation */
+                @keyframes scroll-left {
+                    0% {
+                        transform: translateX(0);
+                    }
+                    100% {
+                        transform: translateX(-100%);
+                    }
+                }
+
+                .logo-scroll {
+                    animation: scroll-left 40s linear infinite;
+                }
+
+                .logo-scroll:hover {
+                    animation-play-state: paused;
+                }
+
+                /* Dropdown smooth animation - Scoped to nav only */
+                .dropdown-menu {
+                    transform: translateY(-10px);
+                }
+
+                nav .group:hover .dropdown-menu {
+                    transform: translateY(0);
+                }
+                
+                /* Mobile Menu Styles - Scoped to prevent conflicts */
+                nav .mobile-nav-menu {
+                    transition: max-height 0.3s ease-in-out;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    z-index: 40;
+                }
+
+                nav .mobile-nav-menu.mobile-menu-active {
+                    max-height: 600px;
+                }
+
+                nav .mobile-artists-expanded {
+                    max-height: 200px;
+                }
+
+                /* Merged from Site 2 */
+                .text-gradient-gold {
+                    background: linear-gradient(135deg, #C9A227, #E0B84A);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                    background-clip: text;
+                }
+                @keyframes fadeInUp {
+                    from { opacity: 0; transform: translateY(40px); }
+                    to { opacity: 1; transform: translateY(0); }
+                }
+                @keyframes fadeInLeft {
+                    from { opacity: 0; transform: translateX(-40px); }
+                    to { opacity: 1; transform: translateX(0); }
+                }
+                @keyframes fadeInRight {
+                    from { opacity: 0; transform: translateX(40px); }
+                    to { opacity: 1; transform: translateX(0); }
+                }
+                .animate-in { animation: fadeInUp 0.8s ease-out forwards; opacity: 0; }
+                .animate-in-left { animation: fadeInLeft 0.6s ease-out forwards; opacity: 0; }
+                .animate-in-right { animation: fadeInRight 0.6s ease-out forwards; opacity: 0; }
+                .delay-100 { animation-delay: 0.1s; }
+                .delay-200 { animation-delay: 0.2s; }
+                .delay-300 { animation-delay: 0.3s; }
+                .delay-400 { animation-delay: 0.4s; }
+                .delay-500 { animation-delay: 0.5s; }
+                .delay-600 { animation-delay: 0.6s; }
+                .delay-800 { animation-delay: 0.8s; }
+            </style>
+            <style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Noto Sans, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.bottom-0{bottom:0px}.bottom-10{bottom:2.5rem}.left-0{left:0px}.left-1\/2{left:50%}.top-0{top:0px}.top-full{top:100%}.bottom-4{bottom:1rem}.left-6{left:1.5rem}.right-6{right:1.5rem}.top-1\/2{top:50%}.top-6{top:1.5rem}.z-0{z-index:0}.z-10{z-index:10}.z-20{z-index:20}.z-50{z-index:50}.z-\[9999\]{z-index:9999}.col-span-1{grid-column:span 1 / span 1}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:0.25rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.aspect-\[4\/5\]{aspect-ratio:4/5}.size-8{width:2rem;height:2rem}.h-12{height:3rem}.h-20{height:5rem}.h-5{height:1.25rem}.h-\[1px\]{height:1px}.h-full{height:100%}.h-14{height:3.5rem}.max-h-0{max-height:0px}.max-h-\[85vh\]{max-height:85vh}.min-h-screen{min-height:100vh}.w-12{width:3rem}.w-16{width:4rem}.w-5{width:1.25rem}.w-56{width:14rem}.w-full{width:100%}.w-14{width:3.5rem}.max-w-2xl{max-width:42rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-\[1280px\]{max-width:1280px}.max-w-full{max-width:100%}.max-w-3xl{max-width:48rem}.flex-shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes bounce{0%, 100%{transform:translateY(-25%);animation-timing-function:cubic-bezier(0.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,0.2,1)}}.animate-bounce{animation:bounce 1s infinite}.resize-none{resize:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-start{justify-content:flex-start}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.gap-16{gap:4rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-hidden{overflow-x:hidden}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:0.5rem}.rounded-lg{border-radius:1rem}.rounded-xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-y{border-top-width:1px;border-bottom-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-accent\/30{border-color:rgb(201 176 126 / 0.3)}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/5{border-color:rgb(255 255 255 / 0.05)}.bg-\[\#0B1522\]{--tw-bg-opacity:1;background-color:rgb(11 21 34 / var(--tw-bg-opacity, 1))}.bg-accent{--tw-bg-opacity:1;background-color:rgb(201 176 126 / var(--tw-bg-opacity, 1))}.bg-accent\/10{background-color:rgb(201 176 126 / 0.1)}.bg-accent\/20{background-color:rgb(201 176 126 / 0.2)}.bg-background-card{--tw-bg-opacity:1;background-color:rgb(21 36 54 / var(--tw-bg-opacity, 1))}.bg-background-dark{--tw-bg-opacity:1;background-color:rgb(15 28 44 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(31 69 110 / var(--tw-bg-opacity, 1))}.bg-background-card\/80{background-color:rgb(21 36 54 / 0.8)}.bg-background-card\/90{background-color:rgb(21 36 54 / 0.9)}.bg-background-dark\/95{background-color:rgb(15 28 44 / 0.95)}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top, var(--tw-gradient-stops))}.from-background-card{--tw-gradient-from:#152436 var(--tw-gradient-from-position);--tw-gradient-to:rgb(21 36 54 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-background-dark\/30{--tw-gradient-from:rgb(15 28 44 / 0.3) var(--tw-gradient-from-position);--tw-gradient-to:rgb(15 28 44 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-background-dark\/50{--tw-gradient-to:rgb(15 28 44 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(15 28 44 / 0.5) var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-background-dark{--tw-gradient-to:#0F1C2C var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.bg-cover{background-size:cover}.bg-center{background-position:center}.bg-top{background-position:top}.object-contain{object-fit:contain}.object-cover{object-fit:cover}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pl-4{padding-left:1rem}.pt-2{padding-top:0.5rem}.pt-20{padding-top:5rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.font-serif{font-family:Noto Serif, serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[32px\]{font-size:32px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-black{font-weight:900}.font-bold{font-weight:700}.font-light{font-weight:300}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-\[0\.2em\]{letter-spacing:0.2em}.tracking-tight{letter-spacing:-0.025em}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.tracking-\[0\.3em\]{letter-spacing:0.3em}.text-accent{--tw-text-opacity:1;color:rgb(201 176 126 / var(--tw-text-opacity, 1))}.text-background-dark{--tw-text-opacity:1;color:rgb(15 28 44 / var(--tw-text-opacity, 1))}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.placeholder-slate-500::placeholder{--tw-placeholder-opacity:1;color:rgb(100 116 139 / var(--tw-placeholder-opacity, 1))}.opacity-0{opacity:0}.opacity-50{opacity:0.5}.opacity-70{opacity:0.7}.opacity-90{opacity:0.9}.shadow-\[0_0_20px_rgba\(31\2c 69\2c 110\2c 0\.5\)\]{--tw-shadow:0 0 20px rgba(31,69,110,0.5);--tw-shadow-colored:0 0 20px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.drop-shadow-2xl{--tw-drop-shadow:drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.delay-200{transition-delay:200ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1)}.selection\:bg-accent *::selection{--tw-bg-opacity:1;background-color:rgb(201 176 126 / var(--tw-bg-opacity, 1))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.selection\:bg-accent::selection{--tw-bg-opacity:1;background-color:rgb(201 176 126 / var(--tw-bg-opacity, 1))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:-translate-y-2:hover{--tw-translate-y:-0.5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-accent:hover{--tw-border-opacity:1;border-color:rgb(201 176 126 / var(--tw-border-opacity, 1))}.hover\:border-accent\/50:hover{border-color:rgb(201 176 126 / 0.5)}.hover\:bg-accent:hover{--tw-bg-opacity:1;background-color:rgb(201 176 126 / var(--tw-bg-opacity, 1))}.hover\:bg-accent\/90:hover{background-color:rgb(201 176 126 / 0.9)}.hover\:bg-primary-light:hover{--tw-bg-opacity:1;background-color:rgb(42 91 143 / var(--tw-bg-opacity, 1))}.hover\:bg-white\/5:hover{background-color:rgb(255 255 255 / 0.05)}.hover\:text-accent:hover{--tw-text-opacity:1;color:rgb(201 176 126 / var(--tw-text-opacity, 1))}.hover\:text-background-dark:hover{--tw-text-opacity:1;color:rgb(15 28 44 / var(--tw-text-opacity, 1))}.hover\:text-slate-400:hover{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:opacity-100:hover{opacity:1}.hover\:grayscale-0:hover{--tw-grayscale:grayscale(0);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.focus\:border-accent:focus{--tw-border-opacity:1;border-color:rgb(201 176 126 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.group:hover .group-hover\:visible{visibility:visible}.group:hover .group-hover\:opacity-100{opacity:1}@media (min-width: 640px){.sm\:block{display:block}.sm\:inline-flex{display:inline-flex}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}}@media (min-width: 768px){.md\:col-span-1{grid-column:span 1 / span 1}.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:bg-background-dark\/80{background-color:rgb(15 28 44 / 0.8)}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}.md\:text-2xl{font-size:1.5rem;line-height:2rem}}@media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:px-12{padding-left:3rem;padding-right:3rem}.lg\:text-6xl{font-size:3.75rem;line-height:1}}</style><style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Noto Sans, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}[type='text'],input:where(:not([type])),[type='email'],[type='url'],[type='password'],[type='number'],[type='date'],[type='datetime-local'],[type='month'],[type='search'],[type='tel'],[type='time'],[type='week'],[multiple],textarea,select{-webkit-appearance:none;appearance:none;background-color:#fff;border-color:#6b7280;border-width:1px;border-radius:0px;padding-top:0.5rem;padding-right:0.75rem;padding-bottom:0.5rem;padding-left:0.75rem;font-size:1rem;line-height:1.5rem;--tw-shadow:0 0 #0000;}[type='text']:focus, input:where(:not([type])):focus, [type='email']:focus, [type='url']:focus, [type='password']:focus, [type='number']:focus, [type='date']:focus, [type='datetime-local']:focus, [type='month']:focus, [type='search']:focus, [type='tel']:focus, [type='time']:focus, [type='week']:focus, [multiple]:focus, textarea:focus, select:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);border-color:#2563eb}input::placeholder,textarea::placeholder{color:#6b7280;opacity:1}::-webkit-datetime-edit-fields-wrapper{padding:0}::-webkit-date-and-time-value{min-height:1.5em;text-align:inherit}::-webkit-datetime-edit{display:inline-flex}::-webkit-datetime-edit,::-webkit-datetime-edit-year-field,::-webkit-datetime-edit-month-field,::-webkit-datetime-edit-day-field,::-webkit-datetime-edit-hour-field,::-webkit-datetime-edit-minute-field,::-webkit-datetime-edit-second-field,::-webkit-datetime-edit-millisecond-field,::-webkit-datetime-edit-meridiem-field{padding-top:0;padding-bottom:0}select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");background-position:right 0.5rem center;background-repeat:no-repeat;background-size:1.5em 1.5em;padding-right:2.5rem;print-color-adjust:exact}[multiple],[size]:where(select:not([size="1"])){background-image:initial;background-position:initial;background-repeat:unset;background-size:initial;padding-right:0.75rem;print-color-adjust:unset}[type='checkbox'],[type='radio']{-webkit-appearance:none;appearance:none;padding:0;print-color-adjust:exact;display:inline-block;vertical-align:middle;background-origin:border-box;-webkit-user-select:none;user-select:none;flex-shrink:0;height:1rem;width:1rem;color:#2563eb;background-color:#fff;border-color:#6b7280;border-width:1px;--tw-shadow:0 0 #0000}[type='checkbox']{border-radius:0px}[type='radio']{border-radius:100%}[type='checkbox']:focus,[type='radio']:focus{outline:2px solid transparent;outline-offset:2px;--tw-ring-inset:var(--tw-empty,/*!*/ /*!*/);--tw-ring-offset-width:2px;--tw-ring-offset-color:#fff;--tw-ring-color:#2563eb;--tw-ring-offset-shadow:var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);--tw-ring-shadow:var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);box-shadow:var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)}[type='checkbox']:checked,[type='radio']:checked{border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat}[type='checkbox']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='checkbox']:checked{-webkit-appearance:auto;appearance:auto}}[type='radio']:checked{background-image:url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='8' cy='8' r='3'/%3e%3c/svg%3e");}@media (forced-colors: active) {[type='radio']:checked{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:checked:hover,[type='checkbox']:checked:focus,[type='radio']:checked:hover,[type='radio']:checked:focus{border-color:transparent;background-color:currentColor}[type='checkbox']:indeterminate{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 16 16'%3e%3cpath stroke='white' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8h8'/%3e%3c/svg%3e");border-color:transparent;background-color:currentColor;background-size:100% 100%;background-position:center;background-repeat:no-repeat;}@media (forced-colors: active) {[type='checkbox']:indeterminate{-webkit-appearance:auto;appearance:auto}}[type='checkbox']:indeterminate:hover,[type='checkbox']:indeterminate:focus{border-color:transparent;background-color:currentColor}[type='file']{background:unset;border-color:inherit;border-width:0;border-radius:0;padding:0;font-size:unset;line-height:inherit}[type='file']:focus{outline:1px solid ButtonText;outline:1px auto -webkit-focus-ring-color}.container{width:100%}@media (min-width: 640px){.container{max-width:640px}}@media (min-width: 768px){.container{max-width:768px}}@media (min-width: 1024px){.container{max-width:1024px}}@media (min-width: 1280px){.container{max-width:1280px}}@media (min-width: 1536px){.container{max-width:1536px}}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border-width:0}.invisible{visibility:hidden}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.bottom-0{bottom:0px}.bottom-10{bottom:2.5rem}.left-0{left:0px}.left-1\/2{left:50%}.top-0{top:0px}.top-full{top:100%}.bottom-4{bottom:1rem}.left-6{left:1.5rem}.right-6{right:1.5rem}.top-1\/2{top:50%}.top-6{top:1.5rem}.z-0{z-index:0}.z-10{z-index:10}.z-20{z-index:20}.z-50{z-index:50}.z-\[9999\]{z-index:9999}.col-span-1{grid-column:span 1 / span 1}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.ml-1{margin-left:0.25rem}.mt-1{margin-top:0.25rem}.mt-2{margin-top:0.5rem}.mt-4{margin-top:1rem}.mt-8{margin-top:2rem}.block{display:block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.aspect-\[4\/5\]{aspect-ratio:4/5}.size-8{width:2rem;height:2rem}.h-12{height:3rem}.h-20{height:5rem}.h-5{height:1.25rem}.h-\[1px\]{height:1px}.h-full{height:100%}.h-14{height:3.5rem}.max-h-0{max-height:0px}.max-h-\[85vh\]{max-height:85vh}.min-h-screen{min-height:100vh}.w-12{width:3rem}.w-16{width:4rem}.w-5{width:1.25rem}.w-56{width:14rem}.w-full{width:100%}.w-14{width:3.5rem}.max-w-2xl{max-width:42rem}.max-w-4xl{max-width:56rem}.max-w-6xl{max-width:72rem}.max-w-\[1280px\]{max-width:1280px}.max-w-full{max-width:100%}.max-w-5xl{max-width:64rem}.flex-shrink-0{flex-shrink:0}.-translate-x-1\/2{--tw-translate-x:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.-translate-y-1\/2{--tw-translate-y:-50%;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.scale-105{--tw-scale-x:1.05;--tw-scale-y:1.05;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}@keyframes bounce{0%, 100%{transform:translateY(-25%);animation-timing-function:cubic-bezier(0.8,0,1,1)}50%{transform:none;animation-timing-function:cubic-bezier(0,0,0.2,1)}}.animate-bounce{animation:bounce 1s infinite}.resize-none{resize:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-row{flex-direction:row}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-1{gap:0.25rem}.gap-10{gap:2.5rem}.gap-12{gap:3rem}.gap-16{gap:4rem}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.space-y-3 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.75rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.75rem * var(--tw-space-y-reverse))}.space-y-4 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1rem * var(--tw-space-y-reverse))}.space-y-6 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(1.5rem * var(--tw-space-y-reverse))}.space-y-8 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(2rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(2rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-x-hidden{overflow-x:hidden}.whitespace-nowrap{white-space:nowrap}.rounded{border-radius:0.5rem}.rounded-lg{border-radius:1rem}.rounded-xl{border-radius:1.5rem}.rounded-full{border-radius:9999px}.border{border-width:1px}.border-y{border-top-width:1px;border-bottom-width:1px}.border-b{border-bottom-width:1px}.border-t{border-top-width:1px}.border-accent\/30{border-color:rgb(201 176 126 / 0.3)}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.border-white\/10{border-color:rgb(255 255 255 / 0.1)}.border-white\/5{border-color:rgb(255 255 255 / 0.05)}.bg-\[\#0B1522\]{--tw-bg-opacity:1;background-color:rgb(11 21 34 / var(--tw-bg-opacity, 1))}.bg-accent{--tw-bg-opacity:1;background-color:rgb(201 176 126 / var(--tw-bg-opacity, 1))}.bg-accent\/10{background-color:rgb(201 176 126 / 0.1)}.bg-accent\/20{background-color:rgb(201 176 126 / 0.2)}.bg-background-card{--tw-bg-opacity:1;background-color:rgb(21 36 54 / var(--tw-bg-opacity, 1))}.bg-background-dark{--tw-bg-opacity:1;background-color:rgb(15 28 44 / var(--tw-bg-opacity, 1))}.bg-background-card\/80{background-color:rgb(21 36 54 / 0.8)}.bg-background-card\/90{background-color:rgb(21 36 54 / 0.9)}.bg-background-dark\/95{background-color:rgb(15 28 44 / 0.95)}.bg-gradient-to-b{background-image:linear-gradient(to bottom, var(--tw-gradient-stops))}.bg-gradient-to-t{background-image:linear-gradient(to top, var(--tw-gradient-stops))}.from-background-card{--tw-gradient-from:#152436 var(--tw-gradient-from-position);--tw-gradient-to:rgb(21 36 54 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.from-background-dark\/30{--tw-gradient-from:rgb(15 28 44 / 0.3) var(--tw-gradient-from-position);--tw-gradient-to:rgb(15 28 44 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-background-dark\/50{--tw-gradient-to:rgb(15 28 44 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), rgb(15 28 44 / 0.5) var(--tw-gradient-via-position), var(--tw-gradient-to)}.via-transparent{--tw-gradient-to:rgb(0 0 0 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), transparent var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-background-dark{--tw-gradient-to:#0F1C2C var(--tw-gradient-to-position)}.to-transparent{--tw-gradient-to:transparent var(--tw-gradient-to-position)}.bg-cover{background-size:cover}.bg-center{background-position:center}.bg-top{background-position:top}.object-contain{object-fit:contain}.object-cover{object-fit:cover}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-16{padding-top:4rem;padding-bottom:4rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-24{padding-top:6rem;padding-bottom:6rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.py-4{padding-top:1rem;padding-bottom:1rem}.py-6{padding-top:1.5rem;padding-bottom:1.5rem}.pl-4{padding-left:1rem}.pt-2{padding-top:0.5rem}.pt-20{padding-top:5rem}.pt-8{padding-top:2rem}.text-center{text-align:center}.font-serif{font-family:Noto Serif, serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-\[32px\]{font-size:32px}.text-base{font-size:1rem;line-height:1.5rem}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.text-5xl{font-size:3rem;line-height:1}.font-black{font-weight:900}.font-bold{font-weight:700}.font-light{font-weight:300}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.italic{font-style:italic}.leading-relaxed{line-height:1.625}.leading-tight{line-height:1.25}.tracking-\[0\.2em\]{letter-spacing:0.2em}.tracking-\[0\.3em\]{letter-spacing:0.3em}.tracking-tight{letter-spacing:-0.025em}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-accent{--tw-text-opacity:1;color:rgb(201 176 126 / var(--tw-text-opacity, 1))}.text-background-dark{--tw-text-opacity:1;color:rgb(15 28 44 / var(--tw-text-opacity, 1))}.text-slate-100{--tw-text-opacity:1;color:rgb(241 245 249 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-400{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.text-slate-500{--tw-text-opacity:1;color:rgb(100 116 139 / var(--tw-text-opacity, 1))}.text-slate-600{--tw-text-opacity:1;color:rgb(71 85 105 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.placeholder-slate-500::placeholder{--tw-placeholder-opacity:1;color:rgb(100 116 139 / var(--tw-placeholder-opacity, 1))}.opacity-0{opacity:0}.opacity-50{opacity:0.5}.opacity-70{opacity:0.7}.opacity-90{opacity:0.9}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.drop-shadow-2xl{--tw-drop-shadow:drop-shadow(0 25px 25px rgb(0 0 0 / 0.15));filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.grayscale{--tw-grayscale:grayscale(100%);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.backdrop-blur-md{--tw-backdrop-blur:blur(12px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.delay-200{transition-delay:200ms}.duration-300{transition-duration:300ms}.duration-500{transition-duration:500ms}.ease-in-out{transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1)}.selection\:bg-accent *::selection{--tw-bg-opacity:1;background-color:rgb(201 176 126 / var(--tw-bg-opacity, 1))}.selection\:text-white *::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.selection\:bg-accent::selection{--tw-bg-opacity:1;background-color:rgb(201 176 126 / var(--tw-bg-opacity, 1))}.selection\:text-white::selection{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:-translate-y-2:hover{--tw-translate-y:-0.5rem;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-accent:hover{--tw-border-opacity:1;border-color:rgb(201 176 126 / var(--tw-border-opacity, 1))}.hover\:border-accent\/50:hover{border-color:rgb(201 176 126 / 0.5)}.hover\:bg-accent:hover{--tw-bg-opacity:1;background-color:rgb(201 176 126 / var(--tw-bg-opacity, 1))}.hover\:bg-accent\/90:hover{background-color:rgb(201 176 126 / 0.9)}.hover\:bg-white\/5:hover{background-color:rgb(255 255 255 / 0.05)}.hover\:text-accent:hover{--tw-text-opacity:1;color:rgb(201 176 126 / var(--tw-text-opacity, 1))}.hover\:text-background-dark:hover{--tw-text-opacity:1;color:rgb(15 28 44 / var(--tw-text-opacity, 1))}.hover\:text-slate-400:hover{--tw-text-opacity:1;color:rgb(148 163 184 / var(--tw-text-opacity, 1))}.hover\:text-white:hover{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.hover\:opacity-100:hover{opacity:1}.hover\:grayscale-0:hover{--tw-grayscale:grayscale(0);filter:var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)}.focus\:border-accent:focus{--tw-border-opacity:1;border-color:rgb(201 176 126 / var(--tw-border-opacity, 1))}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.group:hover .group-hover\:visible{visibility:visible}.group:hover .group-hover\:opacity-100{opacity:1}@media (min-width: 640px){.sm\:block{display:block}.sm\:inline-flex{display:inline-flex}.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}}@media (min-width: 768px){.md\:col-span-1{grid-column:span 1 / span 1}.md\:flex{display:flex}.md\:hidden{display:none}.md\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.md\:flex-row{flex-direction:row}.md\:bg-background-dark\/80{background-color:rgb(15 28 44 / 0.8)}.md\:text-4xl{font-size:2.25rem;line-height:2.5rem}.md\:text-xl{font-size:1.25rem;line-height:1.75rem}}@media (min-width: 1024px){.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:px-12{padding-left:3rem;padding-right:3rem}.lg\:text-6xl{font-size:3.75rem;line-height:1}}</style></head>
+            <body class="bg-background-dark text-slate-100 overflow-x-hidden selection:bg-accent selection:text-white">
+            <!-- Navbar -->
+            <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-background-dark md:bg-background-dark/80 backdrop-blur-md border-b border-white">
+                <div class="max-w-[1280px] mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <div class="size-8 text-accent">
+                            <span class="material-symbols-outlined text-[32px]">anchor</span>
+                        </div>
+                        <span class="text-white text-xl font-bold tracking-wide font-serif">Szabó Music Company</span>
+                    </div>
+                    
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center gap-10">
+                        <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover" href="#home">Homepage</a>
+                        <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover" href="#about">About Us</a>
+                        <!-- Artists Dropdown -->
+                        <div class="relative group">
+                            <button class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover flex items-center gap-1">
+                                Artists
+                                <span class="material-symbols-outlined text-sm">expand_more</span>
+                            </button>
+                            
+                            <div class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-background-card border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                                <a href="#talent" class="block px-6 py-3 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5">Resident Artists</a>
+                                <a href="./musicians.html" class="block px-6 py-3 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium">Full Roster</a>
+                            </div>
+                        </div>
+                        
+                        
+                        <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover" href="#contact">Contact</a>
+                    </div>
+                    
+                    <button class="bg-accent/10 hover:bg-accent text-accent hover:text-background-dark border border-accent/30 hover:border-accent px-6 py-2 rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-500 hidden sm:block">
+                        Book Talent
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden text-white">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu - INSIDE NAV -->
+                <div id="mobileMenu" class="mobile-nav-menu md:hidden bg-background-card backdrop-blur-md border-t border-white overflow-hidden max-h-0 transition-all duration-300 ease-in-out absolute top-full left-0 w-full">
+                    <div class="px-6 py-6 space-y-4">
+                        <a href="#home" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2">Homepage</a>
+                        <a href="#about" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2">About Us</a>
+                        <!-- Mobile Artists Dropdown -->
+                        <div>
+                            <button id="mobileArtistsToggle" class="w-full flex items-center justify-between text-slate-300 hover:text-accent transition-colors text-base font-medium py-2">
+                                Artists
+                                <span class="material-symbols-outlined text-sm transition-transform duration-300" id="mobileArtistsIcon">expand_more</span>
+                            </button>
+                            
+                            <div id="mobileArtistsMenu" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                <div class="pl-4 pt-2 space-y-2">
+                                    <a href="#talent" class="block text-slate-400 hover:text-accent transition-colors text-sm py-2">Resident Artists</a>
+                                    <a href="./musicians.html" class="block text-slate-400 hover:text-accent transition-colors text-sm py-2">Full Roster</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <a href="#contact" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2">Contact</a>
+                        
+                        <button class="w-full bg-accent/10 hover:bg-accent text-accent hover:text-background-dark border border-accent/30 hover:border-accent px-6 py-3 rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-300 mt-4">
+                            Book Talent
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+                <!-- Hero Section with Video Placeholder -->
+                <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+                    <!-- Video Placeholder - Ocean Waves GIF -->
+                    <div class="absolute inset-0 z-0">
+                        <div class="absolute inset-0 bg-gradient-to-b from-background-dark/30 via-background-dark/50 to-background-dark z-10"></div>
+                        <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHhuM3JwNW1qcmVvamx2ZGdxZDY1NzQ5ZDJmMGhxYzFkZ3loenZ1ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WBO3eC9IbuDBhKMkam/giphy.gif" alt="Ocean waves" class="w-full h-full object-cover scale-105" style="filter: brightness(0.7);">
+                    </div>
+                    <div class="relative z-20 container mx-auto px-6 text-center max-w-5xl pt-20">
+                <p class="animate-in delay-200 text-accent font-medium tracking-[0.3em] uppercase text-sm mb-6">
+                            Est. Budapest, Hungary
+                        </p>
+                        <div class="mb-6 flex justify-center">
+                            <div class="h-[1px] w-16 bg-accent"></div>
+                        </div>
+                        
+                        <h1 class="text-2xl md:text-4xl mb-4 lg:text-6xl font-black text-white leading-tight tracking-tight  drop-shadow-2xl">
+                            Szabó Music Company  <br>  
+                        </h1>
+                <span class="text-accent  max-w-5xl text-4xl italic font-serif font-light">Where World-Class Musicians Meet World-Class Voyages </span>
+                        <p class="text-lg md:text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed font-medium mt-4 mb-4"> Curating once in a lifetime musical experiences for the luxury cruise and hotel industry. </p>
+                        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                            
+                            <button class="flex items-center gap-2 text-white hover:text-accent px-8 py-4 rounded-lg text-base font-medium smooth-hover">
+                                <span class="material-symbols-outlined">play_circle</span>
+                                Watch Showreel
+                            </button>
+                        </div>
+                    </div>
+                    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2 animate-bounce opacity-50">
+                        <span class="text-xs text-white uppercase tracking-[0.2em]">Discover</span>
+                        <span class="material-symbols-outlined text-white">keyboard_arrow_down</span>
+                    </div>
+                </section>
+
+                <!-- Animated Logo Carousel -->
+                
+
+                <!-- Resident Artists Section -->
+                <section id="talent" class="py-24 bg-background-dark">
+                    <div class="max-w-[1280px] mx-auto px-6">
+                                <h2 class="text-3xl md:text-4xl mb-4 flex text-white font-serif"> Resident Artists </h2>
+
+                        <div class=" flex justify-between mb-12">
+            <p class="text-slate-300  font-medium text-lg ">
+                                Bringing elegance and class to every corner of the world. 
+                            </p>
+
+                
+                            <a href="./musicians.html" class="hidden sm:inline-flex items-center text-slate-400 hover:text-accent text-sm font-medium smooth-hover">
+                                View Full Roster <span class="material-symbols-outlined ml-1">arrow_right_alt</span>
+                            </a>
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <!-- Talent Card 1 - Julia -->
+                            <div class="group bg-background-card rounded-xl overflow-hidden shadow-lg border border-white/5 hover:border-accent/50 smooth-hover hover:-translate-y-2">
+                                <div class="aspect-[4/5] w-full bg-cover bg-top relative" style="background-image: url('./imgs/Julia.jpg');">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-background-card via-transparent to-transparent opacity-90"></div>
+                                    <div class="absolute bottom-0 left-0 w-full p-6">
+                                        <p class="text-accent text-xs font-bold uppercase tracking-wider mb-1">Soloist</p>
+                                        <h3 class="text-white text-2xl font-serif mb-3">Julia</h3>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Talent Card 2 - Elgato -->
+                            <div class="group bg-background-card rounded-xl overflow-hidden shadow-lg border border-white/5 hover:border-accent/50 smooth-hover hover:-translate-y-2">
+                                <div class="aspect-[4/5] w-full bg-cover bg-center relative" style="background-image: url('./imgs/Thomas.jpg');">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-background-card via-transparent to-transparent opacity-90"></div>
+                                    <div class="absolute bottom-0 left-0 w-full p-6">
+                                        <p class="text-accent text-xs font-bold uppercase tracking-wider mb-1">Pianist</p>
+                                        <h3 class="text-white text-2xl font-serif mb-3">Thomas</h3>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Talent Card 3 - Jazzy -->
+                            <div class="group bg-background-card rounded-xl overflow-hidden shadow-lg border border-white/5 hover:border-accent/50 smooth-hover hover:-translate-y-2">
+                                <div class="aspect-[4/5] w-full bg-cover bg-top relative" style="background-image: url('./imgs/Sunnymoon duo 2 (1).jpg');">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-background-card via-transparent to-transparent opacity-90"></div>
+                                    <div class="absolute bottom-0 left-0 w-full p-6">
+                                        <p class="text-accent text-xs font-bold uppercase tracking-wider mb-1">Duo</p>
+                                        <h3 class="text-white text-2xl font-serif mb-3">Sunnymoon</h3>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Talent Card 4 - Take2 -->
+                            <div class="group bg-background-card rounded-xl overflow-hidden shadow-lg border border-white/5 hover:border-accent/50 smooth-hover hover:-translate-y-2">
+                                <div class="aspect-[4/5] w-full bg-cover bg-center relative" style="background-image: url('./imgs/Hanna.jpeg');">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-background-card via-transparent to-transparent opacity-90"></div>
+                                    <div class="absolute bottom-0 left-0 w-full p-6">
+                                        <p class="text-accent text-xs font-bold uppercase tracking-wider mb-1">Soloist</p>
+                                        <h3 class="text-white text-2xl font-serif mb-3">Hanna</h3>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                    </div>
+                </div></section>
+
+                <!-- Musicians Section (from Site 2, styled like Site 1) -->
+                <!-- Musicians Section (from Site 2, styled like Site 1) -->
+
+
+            
+
+                <!-- Services Section (Moved from Site 2) -->
+                <section id="services" class="py-24 md:py-32 bg-white">
+                    <div class="container mx-auto px-6">
+                        <div class="text-center mb-16 observe-fade">
+                            <p class="text-accent font-medium tracking-[0.2em] uppercase text-sm mb-4">
+                                What We Offer
+                            </p>
+                            <h2 class="font-serif text-4xl md:text-5xl font-semibold text-card-foreground mb-6">
+                                Our Services
+                            </h2>
+                            <p class="text-muted-foreground text-lg max-w-2xl mx-auto">
+                                Curating world-class musical experiences for the luxury cruise industry. Bringing elegance and class to every corner of the world. 
+                            </p>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <!-- Service 1 -->
+                            <div class="observe-fade group bg-card rounded-lg p-8 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2">
+                                <div class="w-14 h-14 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                                    <svg class="text-accent" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M9 18V5l12-2v13M9 9l12-2M9 18c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm12-2c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-serif text-xl font-semibold text-card-foreground mb-4">
+                                    Talent Curation
+                                </h3>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    We've been trusted by the world's largest travel companies, and the best musicians since XXXX. We provide outstanding service with a long list of testimonials.
+                                </p>
+                            </div>
+
+                            <!-- Service 2 -->
+                            <div class="observe-fade group bg-card rounded-lg p-8 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2">
+                                <div class="w-14 h-14 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                                    <span class="material-symbols-outlined text-accent text-3xl">handshake</span>
+                                </div>
+                                <h3 class="font-serif text-xl font-semibold text-card-foreground mb-4">
+                                    Cruise Partnerships
+                                </h3>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    Direct relationships with leading cruise lines worldwide, facilitating seamless placements for multi-month contracts.
+                                </p>
+                            </div>
+
+                            <!-- Service 3 -->
+                            <div class="observe-fade group bg-card rounded-lg p-8 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2">
+                                <div class="w-14 h-14 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                                    <svg class="text-accent" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-serif text-xl font-semibold text-card-foreground mb-4">
+                                    Artist Management
+                                </h3>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    Full-service management including contracts, travel logistics, visas, and ongoing performance support.
+                                </p>
+                            </div>
+
+                            <!-- Service 4 -->
+                            <div class="observe-fade group bg-card rounded-lg p-8 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-2">
+                                <div class="w-14 h-14 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
+                                    <span class="material-symbols-outlined text-accent text-3xl">handshake</span>
+                                </div>
+                                <h3 class="font-serif text-xl font-semibold text-card-foreground mb-4">
+                                    Quality Assurance
+                                </h3>
+                                <p class="text-muted-foreground leading-relaxed">
+                                    Rigorous audition process and continuous feedback loops to maintain the highest entertainment standards.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- About Section (Moved from Site 2) -->
+                <section id="about" class="py-24 md:py-32 bg-primary-site2">
+                    <div class="container mx-auto px-6">
+                        <div class="grid lg:grid-cols-2 gap-16 items-center">
+                            <!-- Left Content -->
+                            <div class="observe-fade-left">
+                                <p class="text-accent font-medium tracking-[0.2em] uppercase text-sm mb-4">
+                                    About Us
+                                </p>
+                                <h2 class="font-serif text-4xl md:text-5xl font-semibold text-primary-foreground mb-6">
+                                    The Bridge Between<br />
+                                    <span class="text-gradient-gold">Talent & Opportunity</span>
+                                </h2>
+                                <p class="text-primary-foreground/80 text-lg leading-relaxed mb-6">
+                                    Founded in Budapest, Szabo Music Company has been the premier connection 
+                                    between exceptional European musicians and the world's most prestigious cruise lines. 
+                                    Our deep understanding of both the music industry and maritime entertainment 
+                                    creates unparalleled opportunities for artists and cruise companies alike.
+                                </p>
+                                <p class="text-primary-foreground/70 leading-relaxed mb-8">
+                                    Miklos Szabo is a graduate of the Franz Liszt Academy of Music in Budapest, Hungary. He has made his mark as maritime musician performing for industry leading cruise lines, notably Holland America Line, Viking Ocean Cruises, P&O Cruises and Cunard Line. 
+                                    His decade long experience has taken him around the world and earned him a wealth of insights and connections in the music business.
+                                    Miklos takes pride in overseeing the development of young musicians, arranging the right position for the right performer and providing professional management to clients.
+                                </p>
+
+                                <div class="flex flex-wrap gap-6">
+                                    <div class="flex items-center gap-3">
+                                        <svg class="text-accent" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                            <circle cx="12" cy="10" r="3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle>
+                                        </svg>
+                                        <span class="text-primary-foreground/80">Budapest, Hungary</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <svg class="text-accent" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></rect>
+                                            <line x1="16" y1="2" x2="16" y2="6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
+                                            <line x1="8" y1="2" x2="8" y2="6" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
+                                            <line x1="3" y1="10" x2="21" y2="10" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
+                                        </svg>
+                                        <span class="text-primary-foreground/80">Since XXXX</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <svg class="text-accent" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                            <circle cx="12" cy="12" r="10" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle>
+                                            <line x1="2" y1="12" x2="22" y2="12" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></line>
+                                            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+                                        </svg>
+                                        <span class="text-primary-foreground/80">Global Reach</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Right Stats -->
+                            <div class="observe-fade-right grid grid-cols-2 gap-6">
+                                <div class="bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg p-8 text-center hover:bg-primary-foreground/10 transition-colors duration-300">
+                                    <p class="font-serif text-4xl md:text-5xl font-bold text-accent mb-2">
+                                        XX+
+                                    </p>
+                                    <p class="text-primary-foreground/70 font-medium">
+                                        Musicians Placed
+                                    </p>
+                                </div>
+                                <div class="bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg p-8 text-center hover:bg-primary-foreground/10 transition-colors duration-300">
+                                    <p class="font-serif text-4xl md:text-5xl font-bold text-accent mb-2">
+                                        XX+
+                                    </p>
+                                    <p class="text-primary-foreground/70 font-medium">
+                                        Cruise Partners
+                                    </p>
+                                </div>
+                                <div class="bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg p-8 text-center hover:bg-primary-foreground/10 transition-colors duration-300">
+                                    <p class="font-serif text-4xl md:text-5xl font-bold text-accent mb-2">
+                                        XX
+                                    </p>
+                                    <p class="text-primary-foreground/70 font-medium">
+                                        Years Experience
+                                    </p>
+                                </div>
+                                <div class="bg-primary-foreground/5 border border-primary-foreground/10 rounded-lg p-8 text-center hover:bg-primary-foreground/10 transition-colors duration-300">
+                                    <p class="font-serif text-4xl md:text-5xl font-bold text-accent mb-2">
+                                        XX+
+                                    </p>
+                                    <p class="text-primary-foreground/70 font-medium">
+                                        Countries Served
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Section (from Site 2, styled like Site 1) -->
+                <section id="contact" class="py-24 bg-background-dark">
+                    <div class="max-w-[1280px] mx-auto px-6">
+                        <div class="text-center mb-16">
+                            <p class="text-accent font-medium tracking-[0.2em] uppercase text-sm mb-4">Get In Touch</p>
+                            <h2 class="text-3xl md:text-4xl text-white font-serif mb-6">Start Your Journey</h2>
+                            <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                                Whether you're a musician seeking opportunities or a cruise line looking for talent, we'd love to hear from you
+                            </p>
+                        </div>
+
+                        <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                            <!-- Contact Form -->
+                            <div class="bg-background-card border border-white/5 rounded-xl p-8">
+                                <form class="space-y-6">
+                                    <div class="grid sm:grid-cols-2 gap-6">
+                                        <div>
+                                            <label class="block text-slate-300 text-sm font-medium mb-2">First Name</label>
+                                            <input type="text" class="w-full bg-background-dark border border-white/10 rounded px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-accent transition-colors" placeholder="John">
+                                        </div>
+                                        <div>
+                                            <label class="block text-slate-300 text-sm font-medium mb-2">Last Name</label>
+                                            <input type="text" class="w-full bg-background-dark border border-white/10 rounded px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-accent transition-colors" placeholder="Doe">
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label class="block text-slate-300 text-sm font-medium mb-2">Email</label>
+                                        <input type="email" class="w-full bg-background-dark border border-white/10 rounded px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-accent transition-colors" placeholder="john@example.com">
+                                    </div>
+                                    <div>
+                                        <label class="block text-slate-300 text-sm font-medium mb-2">I am a...</label>
+                                        <select class="w-full bg-background-dark border border-white/10 rounded px-4 py-3 text-white focus:outline-none focus:border-accent transition-colors">
+                                            <option value="">Select an option</option>
+                                            <option value="musician">Musician seeking opportunities</option>
+                                            <option value="cruise">Cruise line representative</option>
+                                            <option value="other">Other inquiry</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="block text-slate-300 text-sm font-medium mb-2">Message</label>
+                                        <textarea rows="4" class="w-full bg-background-dark border border-white/10 rounded px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-accent transition-colors resize-none" placeholder="Tell us about yourself or your needs..."></textarea>
+                                    </div>
+                                    <button type="submit" class="w-full bg-accent hover:bg-accent/90 text-background-dark py-4 rounded font-semibold flex items-center justify-center gap-2 transition-all duration-300">
+                                        <span class="material-symbols-outlined">send</span>
+                                        Send Message
+                                    </button>
+                                </form>
+                            </div>
+
+                            <!-- Contact Info -->
+                            <div class="space-y-8">
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <span class="material-symbols-outlined text-accent">location_on</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-serif text-lg font-semibold text-white mb-1">Our Office</h3>
+                                        <p class="text-slate-400">Budapest, Hungary</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <span class="material-symbols-outlined text-accent">mail</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-serif text-lg font-semibold text-white mb-1">Email Us</h3>
+                                        <p class="text-slate-400">miklos@szabomusiccompany.com</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <span class="material-symbols-outlined text-accent">call</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-serif text-lg font-semibold text-white mb-1">Call Us</h3>
+                                        <p class="text-slate-400">+447445449483<br>+36309552088</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-start gap-4">
+                                    <div class="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                        <span class="material-symbols-outlined text-accent">schedule</span>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-serif text-lg font-semibold text-white mb-1">Response Time</h3>
+                                        <p class="text-slate-400">We typically respond within 24 hours during business days</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            <section class="py-16 bg-[#0B1522] border-y border-white/5 overflow-hidden">
+                    <div class="max-w-[1280px] mx-auto px-6 text-center mb-8">
+                        <p class="text-slate-500 uppercase tracking-[0.2em] text-xs font-bold">Trusted by the World's Finest Fleets</p>
+                    </div>
+                <div class="relative flex overflow-hidden">
+                <div class="logo-scroll flex items-center gap-16 px-8 whitespace-nowrap">
+                    <!-- First Set -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Cunard_Line_logo.svg/320px-Cunard_Line_logo.svg.png" alt="Cunard Line" class="h-12 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" style="filter: brightness(0) invert(1);">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Holland_America_Line_logo.svg/320px-Holland_America_Line_logo.svg.png" alt="Holland America" class="h-12 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" style="filter: brightness(0) invert(1);">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/P%26O_Cruises_logo.svg/320px-P%26O_Cruises_logo.svg.png" alt="P&amp;O Cruises" class="h-12 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" style="filter: brightness(0) invert(1);">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Viking_Cruises_logo.svg/320px-Viking_Cruises_logo.svg.png" alt="Viking Cruises" class="h-12 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" style="filter: brightness(0) invert(1);">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Celebrity_Cruises_logo.svg/320px-Celebrity_Cruises_logo.svg.png" alt="Celebrity Cruises" class="h-12 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" style="filter: brightness(0) invert(1);">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Princess_Cruises_logo.svg/320px-Princess_Cruises_logo.svg.png" alt="Princess Cruises" class="h-12 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" style="filter: brightness(0) invert(1);">
+                </div>
+                <div class="logo-scroll flex items-center gap-16 px-8 whitespace-nowrap" aria-hidden="true">
+                    <!-- Duplicate Set -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Cunard_Line_logo.svg/320px-Cunard_Line_logo.svg.png" alt="Cunard Line" class="h-12 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" style="filter: brightness(0) invert(1);">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Holland_America_Line_logo.svg/320px-Holland_America_Line_logo.svg.png" alt="Holland America" class="h-12 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" style="filter: brightness(0) invert(1);">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/P%26O_Cruises_logo.svg/320px-P%26O_Cruises_logo.svg.png" alt="P&amp;O Cruises" class="h-12 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" style="filter: brightness(0) invert(1);">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Viking_Cruises_logo.svg/320px-Viking_Cruises_logo.svg.png" alt="Viking Cruises" class="h-12 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" style="filter: brightness(0) invert(1);">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Celebrity_Cruises_logo.svg/320px-Celebrity_Cruises_logo.svg.png" alt="Celebrity Cruises" class="h-12 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" style="filter: brightness(0) invert(1);">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Princess_Cruises_logo.svg/320px-Princess_Cruises_logo.svg.png" alt="Princess Cruises" class="h-12 opacity-70 hover:opacity-100 transition-opacity grayscale hover:grayscale-0" style="filter: brightness(0) invert(1);">
+                </div>
+            </div>
+                </section>
+                <!-- Footer -->
+                <footer class="bg-background-dark border-t border-white/10 py-16 text-sm">
+                    <div class="max-w-[1280px] mx-auto px-6">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                            <div class="col-span-1 md:col-span-1">
+                                <div class="flex items-center gap-2 text-white mb-6">
+                                    <span class="material-symbols-outlined text-accent">anchor</span>
+                                    <span class="font-bold font-serif text-lg">Szabó Music Company</span>
+                                </div>
+                                <p class="text-slate-500 leading-relaxed mb-6">
+                                    The premier talent agency for the global cruise industry. Connecting luxury fleets with world-class performers since XXXX.
+                                </p>
+                                <div class="flex gap-4">
+                                    <a class="text-slate-400 hover:text-accent smooth-hover" href="#">
+                                        <span class="sr-only">Facebook</span>
+                                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path>
+                                        </svg>
+                                    </a>
+                                    <a class="text-slate-400 hover:text-accent smooth-hover" href="#">
+                                        <span class="sr-only">Instagram</span>
+                                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                            <path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 014.123 3.36c.636-.247 1.363-.416 2.427-.465C7.568 2.83 7.913 2.815 10.296 2.815h1.992zm-1.012 1.818h-1.637c-2.607 0-2.927.01-3.951.058-.962.045-1.484.207-1.832.342-.456.177-.783.39-1.126.732-.343.342-.555.67-.733 1.126-.135.347-.297.869-.342 1.832-.047 1.024-.058 1.344-.058 3.951v1.637c0 2.607.01 2.927.058 3.951.045.962.207 1.484.342 1.832.177.456.39.783.732 1.126.342.343.67.555 1.126.733.347.135.869.297 1.832.342 1.024.047 1.344.058 3.951.058h1.637c2.607 0 2.927-.01 3.951-.058.962-.045 1.484-.207 1.832-.342.456-.177.783-.39 1.126-.732.343-.342.555-.67.733-1.126.135-.347.297-.869.342-1.832.047-1.024.058-1.344.058-3.951V10.3c0-2.607-.01-2.927-.058-3.951-.045-.962-.207-1.484-.342-1.832-.177-.456-.39-.783-.732-1.126-.342-.343-.67-.555-1.126-.733-.135-.347-.297-.869-.342-1.832-.047-1.024-.058-1.344-.058-3.951zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.818a3.317 3.317 0 100 6.634 3.317 3.317 0 000-6.634zM17.15 6.45a1.2 1.2 0 110 2.401 1.2 1.2 0 010-2.401z" fill-rule="evenodd"></path>
+                                        </svg>
+                                    </a>
+                                    <a class="text-slate-400 hover:text-accent smooth-hover" href="#">
+                                        <span class="sr-only">LinkedIn</span>
+                                        <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                            <path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"></path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-serif font-bold mb-4">Company</h5>
+                                <ul class="space-y-3">
+                                    <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">About Us</a></li>
+                                    <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">Careers</a></li>
+                                    <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">Press</a></li>
+                                    <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#contact">Contact</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-serif font-bold mb-4">For Talent</h5>
+                                <ul class="space-y-3">
+                                    <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">Submit Profile</a></li>
+                                    <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">Auditions</a></li>
+                                    <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">Artist Resources</a></li>
+                                    <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">FAQs</a></li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h5 class="text-white font-serif font-bold mb-4">Contact</h5>
+                                <ul class="space-y-3 text-slate-400">
+                                    <li class="flex items-start gap-3">
+                                        <span class="material-symbols-outlined text-accent text-sm mt-1">location_on</span>
+                                        <span>Budapest, Hungary</span>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-accent text-sm">mail</span>
+                                        <a class="hover:text-white" href="mailto:miklos@szabomusiccompany.com">miklos@szabomusiccompany.com</a>
+                                    </li>
+                                    <li class="flex items-center gap-3">
+                                        <span class="material-symbols-outlined text-accent text-sm">call</span>
+                                        <span>+447445449483<br>+36309552088</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                            <p class="text-slate-600">© 2024 Szabo Music Company. All rights reserved.</p>
+                            <div class="flex gap-6">
+                                <a class="text-slate-600 hover:text-slate-400 smooth-hover" href="#">Privacy Policy</a>
+                                <a class="text-slate-600 hover:text-slate-400 smooth-hover" href="#">Terms of Service</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
+                <script>
+                // Mobile Menu Toggle
+                const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                const mobileMenu = document.getElementById('mobileMenu');
+                
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('mobile-menu-active');
+                });
+                
+                // Mobile Artists Dropdown Toggle
+                const mobileArtistsToggle = document.getElementById('mobileArtistsToggle');
+                const mobileArtistsMenu = document.getElementById('mobileArtistsMenu');
+                const mobileArtistsIcon = document.getElementById('mobileArtistsIcon');
+                
+                mobileArtistsToggle.addEventListener('click', () => {
+                    mobileArtistsMenu.classList.toggle('mobile-artists-expanded');
+                    mobileArtistsIcon.style.transform = mobileArtistsMenu.classList.contains('mobile-artists-expanded') 
+                        ? 'rotate(180deg)' 
+                        : 'rotate(0deg)';
+                });
+                
+                // Close mobile menu when clicking on a link
+                const mobileLinks = mobileMenu.querySelectorAll('a');
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('mobile-menu-active');
+                        // Also close artists submenu if open
+                        mobileArtistsMenu.classList.remove('mobile-artists-expanded');
+                        mobileArtistsIcon.style.transform = 'rotate(0deg)';
+                    });
+                });
+
+                // Smooth scroll for anchor links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        const target = document.querySelector(this.getAttribute('href'));
+                        if (target) {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                });
+                
+                // Gallery Modal System
+                let currentImageIndex = 0;
+                let galleryImages = [];
+
+                function initGallery() {
+                    const triggers = document.querySelectorAll('.gallery-trigger');
+                    
+                    triggers.forEach((img, index) => {
+                        galleryImages.push({
+                            src: img.src,
+                            alt: img.alt || `Image ${index + 1}`
+                        });
+                        
+                        img.style.cursor = 'pointer';
+                        img.addEventListener('click', () => {
+                            openGallery(index);
+                        });
+                    });
+                }
+
+                function openGallery(index) {
+                    currentImageIndex = index;
+                    const modal = document.getElementById('galleryModal');
+                    const modalImage = document.getElementById('modalImage');
+                    const counter = document.getElementById('imageCounter');
+                    
+                    modal.classList.remove('hidden');
+                    document.body.style.overflow = 'hidden';
+                    
+                    modalImage.src = galleryImages[currentImageIndex].src;
+                    modalImage.alt = galleryImages[currentImageIndex].alt;
+                    counter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+                }
+
+                function closeGallery() {
+                    const modal = document.getElementById('galleryModal');
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                }
+
+                function nextImage() {
+                    currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+                    updateModalImage();
+                }
+
+                function previousImage() {
+                    currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+                    updateModalImage();
+                }
+
+                function updateModalImage() {
+                    const modalImage = document.getElementById('modalImage');
+                    const counter = document.getElementById('imageCounter');
+                    
+                    modalImage.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        modalImage.src = galleryImages[currentImageIndex].src;
+                        modalImage.alt = galleryImages[currentImageIndex].alt;
+                        counter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+                        modalImage.style.opacity = '1';
+                    }, 150);
+                }
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    const modal = document.getElementById('galleryModal');
+                    if (!modal.classList.contains('hidden')) {
+                        if (e.key === 'Escape') closeGallery();
+                        if (e.key === 'ArrowRight') nextImage();
+                        if (e.key === 'ArrowLeft') previousImage();
+                    }
+                });
+
+                // Initialize gallery on page load
+                document.addEventListener('DOMContentLoaded', initGallery);
+
+                // Intersection Observer for scroll animations (Merged from Site 2)
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '-100px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            if (entry.target.classList.contains('observe-fade')) {
+                                entry.target.classList.add('animate-in');
+                            } else if (entry.target.classList.contains('observe-fade-left')) {
+                                entry.target.classList.add('animate-in-left');
+                            } else if (entry.target.classList.contains('observe-fade-right')) {
+                                entry.target.classList.add('animate-in-right');
+                            }
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+
+                // Observe all elements with observe classes
+                document.querySelectorAll('.observe-fade, .observe-fade-left, .observe-fade-right').forEach(el => {
+                    observer.observe(el);
+                });
+            </script>    <!-- Gallery Carousel Modal -->
+            <div id="galleryModal" class="fixed inset-0 z-[9999] hidden">
+                <!-- Backdrop -->
+                <div class="absolute inset-0 bg-background-dark/95 backdrop-blur-md" onclick="closeGallery()"></div>
+                
+                <!-- Modal Content -->
+                <div class="relative h-full flex items-center justify-center p-6">
+                    <!-- Close Button -->
+                    <button onclick="closeGallery()" class="absolute top-6 right-6 w-12 h-12 bg-background-card/80 hover:bg-accent border border-white/10 hover:border-accent rounded-full flex items-center justify-center text-white hover:text-background-dark transition-all duration-300 z-50">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                    
+                    <!-- Previous Button -->
+                    <button onclick="previousImage()" class="absolute left-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-background-card/80 hover:bg-accent border border-white/10 hover:border-accent rounded-full flex items-center justify-center text-white hover:text-background-dark transition-all duration-300 z-50">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    
+                    <!-- Image Container -->
+                    <div class="max-w-6xl max-h-[85vh] relative">
+                        <img id="modalImage" src="" alt="" class="max-w-full max-h-[85vh] object-contain rounded-lg shadow-2xl">
+                        
+                        <!-- Image Counter -->
+                        <div class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-background-card/90 border border-white/10 px-4 py-2 rounded-full">
+                            <span id="imageCounter" class="text-white text-sm font-medium">1 / 6</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Next Button -->
+                    <button onclick="nextImage()" class="absolute right-6 top-1/2 -translate-y-1/2 w-14 h-14 bg-background-card/80 hover:bg-accent border border-white/10 hover:border-accent rounded-full flex items-center justify-center text-white hover:text-background-dark transition-all duration-300 z-50">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+
+
+
+            </body></html>
+            <!-- End of Site 5 -->
