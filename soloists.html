@@ -1,0 +1,538 @@
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Solo Acts | Szabó Music Company</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1F456E", "primary-light": "#2A5B8F",
+                        "accent": "#C9B07E", "background-dark": "#0F1C2C",
+                        "background-card": "#152436", "background-light": "#fafafa",
+                    },
+                    fontFamily: { "serif": ["Noto Serif", "serif"], "sans": ["Noto Sans", "sans-serif"] },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body { font-family: "Noto Sans", sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: "Noto Serif", serif; }
+        .smooth-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+ 
+        /* Navbar */
+        .dropdown-menu { transform: translateY(-10px); }
+        nav .group:hover .dropdown-menu { transform: translateY(0); }
+        nav .mobile-nav-menu { transition: max-height 0.3s ease-in-out; position: absolute; top: 100%; left: 0; z-index: 40; }
+        nav .mobile-nav-menu.mobile-menu-active { max-height: 600px; }
+        nav .mobile-artists-expanded { max-height: 200px; }
+ 
+        /* ── Artist card — portrait hover-lift ────────────────── */
+        .artist-card {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3 / 4;
+            border-radius: 1rem;
+            border: 1px solid rgba(255,255,255,0.06);
+            /* entrance animation */
+            opacity: 0;
+            transform: translateY(28px);
+            animation: fadeInUp 0.55s ease-out forwards;
+            transition: border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+        .artist-card:hover {
+            border-color: rgba(201,176,126,0.45);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        }
+        .artist-card.hidden-card { display: none; }
+ 
+        @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
+ 
+        .artist-card:nth-child(1)  { animation-delay: 0.05s; }
+        .artist-card:nth-child(2)  { animation-delay: 0.10s; }
+        .artist-card:nth-child(3)  { animation-delay: 0.15s; }
+        .artist-card:nth-child(4)  { animation-delay: 0.20s; }
+        .artist-card:nth-child(5)  { animation-delay: 0.25s; }
+        .artist-card:nth-child(6)  { animation-delay: 0.30s; }
+        .artist-card:nth-child(7)  { animation-delay: 0.35s; }
+        .artist-card:nth-child(8)  { animation-delay: 0.40s; }
+        .artist-card:nth-child(9)  { animation-delay: 0.45s; }
+        .artist-card:nth-child(10) { animation-delay: 0.50s; }
+ 
+        /* Subtle dark overlay on hover so text reads clearly */
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(10,20,33,0);
+            transition: background 0.4s ease;
+        }
+        .artist-card:hover .card-overlay {
+            background: rgba(10,20,33,0.30);
+        }
+ 
+        /* Panel: anchored to bottom — description hidden below fold at rest */
+        .card-panel {
+            position: absolute;
+            left: 0; right: 0;
+            bottom: -4.5rem;   /* hides the occupation row below card edge */
+            padding: 1.4rem 1.4rem 1.5rem;
+            background: linear-gradient(to top, rgba(10,20,33,0.97) 65%, transparent 100%);
+            transition: bottom 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .artist-card:hover .card-panel {
+            bottom: 0;
+        }
+ 
+        /* Occupation line: fades in after panel finishes lifting */
+        .card-occupation {
+            opacity: 0;
+            transform: translateY(6px);
+            transition: opacity 0.25s ease 0.22s, transform 0.25s ease 0.22s;
+        }
+        .artist-card:hover .card-occupation {
+            opacity: 1;
+            transform: translateY(0);
+        }
+ 
+        /* Thin gold accent line at top of each card */
+        .card-topline {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #C9B07E 40%, transparent);
+            opacity: 0;
+            transition: opacity 0.35s ease;
+        }
+        .artist-card:hover .card-topline { opacity: 1; }
+    </style>
+</head>
+<body class="bg-background-dark text-slate-100 overflow-x-hidden selection:bg-accent selection:text-white">
+ 
+    <!-- ═══════ NAVBAR ═══════════════════════════════════════════ -->
+    <nav class="fixed top-0 w-full z-50 bg-background-dark/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 h-20 flex items-center justify-between gap-3 sm:gap-6">
+            <div class="flex items-center gap-2 sm:gap-3 flex-shrink min-w-0">
+                <div class="size-8 text-accent flex-shrink-0"><span class="material-symbols-outlined text-[32px]">anchor</span></div>
+                <a href="../index.html" class="text-white text-lg sm:text-xl font-bold tracking-wide font-serif truncate">Szabó Music Company</a>
+            </div>
+            <div class="hidden lg:flex items-center gap-8 flex-1 justify-center">
+                <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover" href="/index.html">Homepage</a>
+                <div class="relative group">
+                    <button class="text-accent text-sm font-medium uppercase tracking-widest smooth-hover flex items-center gap-1">Artists <span class="material-symbols-outlined text-sm">expand_more</span></button>
+                    <div class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-background-card border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <a href="../index.html#talent" class="block px-6 py-3 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5">Featured Talent</a>
+                        <a href="../musicians.html" class="block px-6 py-3 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium">Musicians</a>
+                    </div>
+                </div>
+                <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover" href="../index.html#about">About Us</a>
+                <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover" href="../index.html#contact">Contact</a>
+            </div>
+            <button class="bg-accent/10 hover:bg-accent text-accent hover:text-background-dark border border-accent/30 hover:border-accent px-6 py-2 rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-500 hidden lg:block flex-shrink-0">Book Talent</button>
+            <button id="mobileMenuBtn" class="lg:hidden text-white flex-shrink-0 p-2 -mr-2"><span class="material-symbols-outlined">menu</span></button>
+        </div>
+        <div id="mobileMenu" class="mobile-nav-menu lg:hidden bg-background-card/95 backdrop-blur-md border-t border-white/5 overflow-hidden max-h-0 absolute top-full left-0 w-full">
+            <div class="px-6 py-6 space-y-4">
+                <a href="index.html" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2">Homepage</a>
+                <div>
+                    <button id="mobileArtistsToggle" class="w-full flex items-center justify-between text-accent text-base font-medium py-2">Artists <span class="material-symbols-outlined text-sm" id="mobileArtistsIcon">expand_more</span></button>
+                    <div id="mobileArtistsMenu" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                        <div class="pl-4 pt-2 space-y-2">
+                            <a href="../index.html#talent" class="block text-slate-400 hover:text-accent text-sm py-2">Featured Talent</a>
+                            <a href="../musicians.html" class="block text-slate-400 hover:text-accent text-sm py-2">Musicians</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="../index.html#about" class="block text-slate-300 hover:text-accent text-base font-medium py-2">About Us</a>
+                <a href="../index.html#contact" class="block text-slate-300 hover:text-accent text-base font-medium py-2">Contact</a>
+                <button class="w-full bg-accent/10 hover:bg-accent text-accent hover:text-background-dark border border-accent/30 px-6 py-3 rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-300 mt-4">Book Talent</button>
+            </div>
+        </div>
+    </nav>
+ 
+    <!-- ═══════ HERO ══════════════════════════════════════════════ -->
+    <section class="pt-32 pb-14 bg-background-dark">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="flex items-center gap-2 text-sm text-slate-500 mb-8">
+                <a href="../musicians.html" class="hover:text-accent transition-colors">Musicians</a>
+                <span class="material-symbols-outlined text-sm">chevron_right</span>
+                <span class="text-accent">Solo Acts</span>
+            </div>
+            <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-4">
+                <div>
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="h-[1px] w-10 bg-accent"></div>
+                        <span class="text-accent text-xs font-semibold uppercase tracking-[0.2em]">Our Roster</span>
+                    </div>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white font-serif">Solo Acts</h1>
+                </div>
+                <p class="text-slate-400 text-base md:text-lg max-w-lg leading-relaxed">
+                    Intimate, versatile, unforgettable. Our soloists bring world-class artistry to every stage — from the grand atrium to the private lounge.
+                </p>
+            </div>
+            <div class="h-px w-full bg-gradient-to-r from-accent/40 via-white/5 to-transparent mt-10"></div>
+        </div>
+    </section>
+ 
+    <!-- ═══════ ARTIST GRID ═══════════════════════════════════════ -->
+    <section class="py-14 bg-background-dark">
+        <div class="max-w-[1200px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-5" id="artistGrid">
+ 
+                <!-- ── VISIBLE 1–10 ─────────────────────────────── -->
+ 
+                <!-- 1. Julia -->
+                <div class="artist-card">
+                    <div class="absolute bg-cover bg-center inset-0" style="background-image: url('./imgs/Julia.jpg');""></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Julia</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Cocktail Pianist</p>
+                    </div>
+                </div>
+ 
+                <!-- 2. Alpar -->
+                <div class="artist-card">
+                    <div class="absolute bg-cover bg-right inset-0" style="background-image: url('./imgs/Alpar.jpg');""></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Alpar</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Stowaway Pianist</p>
+                    </div>
+                </div>
+ 
+                <!-- 3. Thomas -->
+                <div class="artist-card">
+                    <div class="absolute bg-cover bg-center inset-0" style="background-image: url('./imgs/Thomas.jpg');"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Thomas</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Cocktail Pianist</p>
+                    </div>
+                </div>
+ 
+                <!-- 4. Hanna -->
+                <div class="artist-card">
+                    <div class="absolute bg-cover bg-center inset-0" style="background-image: url('./imgs/Hanna.jpeg');"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Hanna</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Piano Vocalist</p>
+                    </div>
+                </div>
+ 
+                <!-- 5. Renato -->
+                <div class="artist-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Renato</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Guitar Vocalist</p>
+                    </div>
+                </div>
+ 
+                <!-- 6. Monika -->
+                <div class="artist-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Monika</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Cocktail Pianist</p>
+                    </div>
+                </div>
+ 
+                <!-- 7. Benny -->
+                <div class="artist-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Benny</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">DJ / Sax</p>
+                    </div>
+                </div>
+ 
+                <!-- 8. Klaudia -->
+                <div class="artist-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Klaudia</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Piano Vocalist</p>
+                    </div>
+                </div>
+ 
+                <!-- 9. Antal -->
+                <div class="artist-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Antal</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Cocktail Pianist</p>
+                    </div>
+                </div>
+ 
+                <!-- 10. Vica -->
+                <div class="artist-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Vica</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Cocktail Pianist</p>
+                    </div>
+                </div>
+ 
+                <!-- ── HIDDEN 11–24 ─────────────────────────────── -->
+ 
+                <!-- 11. Andrew -->
+                <div class="artist-card hidden-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Andrew</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Guitar Vocalist</p>
+                    </div>
+                </div>
+ 
+                <!-- 12. Attila -->
+                <div class="artist-card hidden-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Attila</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Cocktail Pianist</p>
+                    </div>
+                </div>
+ 
+                <!-- 13. Patricia -->
+                <div class="artist-card hidden-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Patricia</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Piano Vocalist</p>
+                    </div>
+                </div>
+ 
+                <!-- 14. George -->
+                <div class="artist-card hidden-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">George</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Cocktail Pianist</p>
+                    </div>
+                </div>
+ 
+                <!-- 15. Norbert -->
+                <div class="artist-card hidden-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Norbert</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Cocktail Pianist</p>
+                    </div>
+                </div>
+ 
+                <!-- 16. Csaba -->
+                <div class="artist-card hidden-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Csaba</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Solo Guitarist</p>
+                    </div>
+                </div>
+ 
+                <!-- 17. Izabella -->
+                <div class="artist-card hidden-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Izabella</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Cocktail Pianist</p>
+                    </div>
+                </div>
+ 
+                <!-- 18. Witty -->
+                <div class="artist-card hidden-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Witty</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Piano Bar Entertainer</p>
+                    </div>
+                </div>
+ 
+                <!-- 19. Gabor -->
+                <div class="artist-card hidden-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Gabor</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Guitar Vocalist</p>
+                    </div>
+                </div>
+ 
+                <!-- 20. Petar -->
+                <div class="artist-card hidden-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Petar</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Cocktail Pianist</p>
+                    </div>
+                </div>
+ 
+                <!-- 21. Ferenc -->
+                <div class="artist-card hidden-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Ferenc</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Cocktail Pianist</p>
+                    </div>
+                </div>
+ 
+                <!-- 22. Richard -->
+                <div class="artist-card hidden-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Richard</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Cocktail Pianist</p>
+                    </div>
+                </div>
+ 
+                <!-- 23. Gyula -->
+                <div class="artist-card hidden-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Gyula</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Cocktail Pianist</p>
+                    </div>
+                </div>
+ 
+                <!-- 24. Laszlo -->
+                <div class="artist-card hidden-card">
+                    <div class="absolute inset-0" style="background:linear-gradient(160deg,#1F456E 0%,#2A5B8F 40%,#A68B5B 75%,#0B1522 100%)"></div>
+                    <div class="card-topline"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-panel">
+                        <h2 class="text-white text-lg font-bold leading-tight mb-1">Laszlo</h2>
+                        <p class="card-occupation text-[#C9B07E] text-xs font-semibold uppercase tracking-widest">Guitar Vocalist</p>
+                    </div>
+                </div>
+ 
+            </div><!-- /grid -->
+ 
+            <!-- TOGGLE BUTTON -->
+            <div class="flex justify-center mt-12">
+                <button id="toggleBtn" class="inline-flex items-center gap-3 bg-accent/10 hover:bg-accent text-accent hover:text-background-dark border border-accent/30 hover:border-accent px-10 py-4 rounded-lg font-semibold uppercase tracking-wider text-sm smooth-hover">
+                    <span id="toggleBtnText">Show All Artists</span>
+                    <span class="material-symbols-outlined text-lg" id="toggleBtnIcon">expand_more</span>
+                </button>
+            </div>
+        </div>
+    </section>
+ 
+    <!-- ═══════ CTA ════════════════════════════════════════════════ -->
+    <section class="py-24 bg-[#0B1522]">
+        <div class="max-w-[1100px] mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6 font-serif">Ready to Book World-Class Talent?</h2>
+            <p class="text-lg text-slate-400 mb-10 max-w-2xl mx-auto">Connect with our team to find the perfect soloist for your vessel and venue.</p>
+            <a href="../index.html#contact" class="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-background-dark px-10 py-4 rounded-lg font-bold uppercase tracking-wider text-base smooth-hover shadow-xl">
+                Get in Touch <span class="material-symbols-outlined">arrow_forward</span>
+            </a>
+        </div>
+    </section>
+ 
+    <!-- ═══════ FOOTER ════════════════════════════════════════════ -->
+    <footer class="bg-background-dark border-t border-white/10 py-16 text-sm">
+        <div class="max-w-[1280px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div><div class="flex items-center gap-2 text-white mb-6"><span class="material-symbols-outlined text-accent">anchor</span><span class="font-bold font-serif text-lg">Szabó Music Company</span></div><p class="text-slate-500 leading-relaxed mb-6">The premier talent agency for the global cruise industry. Connecting luxury fleets with world-class performers since XXXX.</p><div class="flex gap-4"><a class="text-slate-400 hover:text-accent smooth-hover" href="#"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg></a><a class="text-slate-400 hover:text-accent smooth-hover" href="#"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 014.123 3.36c.636-.247 1.363-.416 2.427-.465C7.568 2.83 7.913 2.815 10.296 2.815h1.992zm-1.012 1.818h-1.637c-2.607 0-2.927.01-3.951.058-.962.045-1.484.207-1.832.342-.456.177-.783.39-1.126.732-.343.342-.555.67-.733 1.126-.135.347-.297.869-.342 1.832-.047 1.024-.058 1.344-.058 3.951v1.637c0 2.607.01 2.927.058 3.951.045.962.207 1.484.342 1.832.177.456.39.783.732 1.126.342.343.67.555 1.126.733.347.135.869.297 1.832.342 1.024.047 1.344.058 3.951.058h1.637c2.607 0 2.927-.01 3.951-.058.962-.045 1.484-.207 1.832-.342.456-.177.783-.39 1.126-.732.343-.342.555-.67.733-1.126.135-.347.297-.869.342-1.832.047-1.024.058-1.344.058-3.951V10.3c0-2.607-.01-2.927-.058-3.951-.045-.962-.207-1.484-.342-1.832-.177-.456-.39-.783-.732-1.126-.342-.343-.67-.555-1.126-.733-.135-.347-.297-.869-.342-1.832-.047-1.024-.058-1.344-.058-3.951zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.818a3.317 3.317 0 100 6.634 3.317 3.317 0 000-6.634zM17.15 6.45a1.2 1.2 0 110 2.401 1.2 1.2 0 010-2.401z" fill-rule="evenodd"/></svg></a><a class="text-slate-400 hover:text-accent smooth-hover" href="#"><svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" fill-rule="evenodd"/></svg></a></div></div>
+                <div><h5 class="text-white font-serif font-bold mb-4">Company</h5><ul class="space-y-3"><li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">About Us</a></li><li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">Careers</a></li><li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">Press</a></li><li><a class="text-slate-400 hover:text-accent smooth-hover" href="../index.html#contact">Contact</a></li></ul></div>
+                <div><h5 class="text-white font-serif font-bold mb-4">For Talent</h5><ul class="space-y-3"><li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">Submit Profile</a></li><li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">Auditions</a></li><li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">Artist Resources</a></li><li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">FAQs</a></li></ul></div>
+                <div><h5 class="text-white font-serif font-bold mb-4">Contact</h5><ul class="space-y-3 text-slate-400"><li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-sm mt-1">location_on</span><span>Budapest, Hungary</span></li><li class="flex items-center gap-3"><span class="material-symbols-outlined text-accent text-sm">mail</span><a class="hover:text-white" href="/cdn-cgi/l/email-protection#f49d9a929bb4878e95969b9981879d97979b9984959a8dda979b99"><span class="__cf_email__" data-cfemail="177e79717857646d7675787a62647e7474787a6776796e3974787a">[email&#160;protected]</span></a></li><li class="flex items-center gap-3"><span class="material-symbols-outlined text-accent text-sm">call</span><span>+447445449483<br>+36309552088</span></li></ul></div>
+            </div>
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-slate-600">© 2024 Szabo Music Company. All rights reserved.</p>
+                <div class="flex gap-6"><a class="text-slate-600 hover:text-slate-400 smooth-hover" href="#">Privacy Policy</a><a class="text-slate-600 hover:text-slate-400 smooth-hover" href="#">Terms of Service</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu    = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('mobile-menu-active'));
+        const mobileArtistsToggle = document.getElementById('mobileArtistsToggle');
+        const mobileArtistsMenu   = document.getElementById('mobileArtistsMenu');
+        const mobileArtistsIcon   = document.getElementById('mobileArtistsIcon');
+        mobileArtistsToggle.addEventListener('click', () => {
+            mobileArtistsMenu.classList.toggle('mobile-artists-expanded');
+            mobileArtistsIcon.style.transform = mobileArtistsMenu.classList.contains('mobile-artists-expanded') ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+        mobileMenu.querySelectorAll('a').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('mobile-menu-active')));
+
+        // Show more / less toggle
+        const toggleBtn     = document.getElementById('toggleBtn');
+        const toggleBtnText = document.getElementById('toggleBtnText');
+        const toggleBtnIcon = document.getElementById('toggleBtnIcon');
+        const hiddenCards   = document.querySelectorAll('.hidden-card');
+        let expanded = false;
+
+        toggleBtn.addEventListener('click', () => {
+            expanded = !expanded;
+            hiddenCards.forEach((card, i) => {
+                if (expanded) {
+                    card.style.display = 'block';
+                    void card.offsetWidth;                  // force reflow — resets CSS animation
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(30px)';
+                    card.style.animation = 'none';
+                    void card.offsetWidth;
+                    card.style.animation = '';
+                    card.style.animationDelay = `${i * 0.09}s`;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+            toggleBtnText.textContent = expanded ? 'Show Less' : 'Show All Artists';
+            toggleBtnIcon.textContent = expanded ? 'expand_less' : 'expand_more';
+            if (!expanded) document.getElementById('artistGrid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    </script>
+</body>
+</html>
