@@ -61,7 +61,19 @@
             transform: translateY(0);
         }
         
-        /* Mobile Menu Styles - Scoped to prevent conflicts */
+        /* Language Toggle */
+/* ── Language Toggle ─────────────────────── */
+    .lang-toggle-btn .lang-active {
+        color: #C9B07E;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+    }
+    .lang-toggle-btn .lang-en,
+    .lang-toggle-btn .lang-hu {
+        color: #64748b; /* slate-500 */
+    }
+
+    /* Mobile Menu Styles - Scoped to prevent conflicts */
         nav .mobile-nav-menu {
             transition: max-height 0.3s ease-in-out;
             position: absolute;
@@ -121,7 +133,7 @@
             
             <!-- Desktop Navigation -->
             <div class="hidden lg:flex items-center gap-8 flex-1 justify-center">
-                <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover whitespace-nowrap" href="index.html#home">Homepage</a>
+                <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover whitespace-nowrap" href="index.html#home" data-i18n="nav.home">Homepage</a>
                 
                 <!-- Artists Dropdown -->
                 <div class="relative group">
@@ -130,14 +142,21 @@
                         <span class="material-symbols-outlined text-sm">expand_more</span>
                     </button>
                     <div class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-background-card border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                        <a href="index.html#talent" class="block px-6 py-3 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5">World Class Musicians</a>
-                        <a href="musicians.html" class="block px-6 py-3 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium">Full Roster</a>
+                        <a href="index.html#talent" class="block px-6 py-3 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5" data-i18n="nav.artists.world">World Class Musicians</a>
+                        <a href="musicians.html" class="block px-6 py-3 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium" data-i18n="nav.artists.roster">Full Roster</a>
                     </div>
                 </div>
                 
-                <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover whitespace-nowrap" href="index.html#about">About Us</a>
-                <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover whitespace-nowrap" href="index.html#contact">Contact</a>
+                <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover whitespace-nowrap" href="index.html#about" data-i18n="nav.about">About Us</a>
+                <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover whitespace-nowrap" href="index.html#contact" data-i18n="nav.contact">Contact</a>
             </div>
+            
+            <!-- Language Toggle -->
+            <button class="lang-toggle-btn flex items-center gap-1 text-xs font-bold uppercase tracking-widest border border-accent/30 hover:border-accent/60 rounded px-2 py-1 smooth-hover" aria-label="Switch language">
+              <span class="lang-en transition-colors duration-200">EN</span>
+              <span class="text-slate-600">/</span>
+              <span class="lang-hu transition-colors duration-200">HU</span>
+            </button>
             
             <button class="bg-accent/10 hover:bg-accent text-accent hover:text-background-dark border border-accent/30 hover:border-accent px-6 py-2 rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-500 hidden lg:block flex-shrink-0 whitespace-nowrap">
                 Book Talent
@@ -152,7 +171,7 @@
         <!-- Mobile Menu - INSIDE NAV -->
         <div id="mobileMenu" class="mobile-nav-menu lg:hidden bg-background-card/95 backdrop-blur-md border-t border-white/5 overflow-hidden max-h-0 transition-all duration-300 ease-in-out absolute top-full left-0 w-full">
             <div class="px-6 py-6 space-y-4">
-                <a href="index.html#home" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2">Homepage</a>
+                <a href="index.html#home" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2" data-i18n="nav.home">Homepage</a>
                 
                 <!-- Mobile Artists Dropdown -->
                 <div>
@@ -162,18 +181,24 @@
                     </button>
                     <div id="mobileArtistsMenu" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                         <div class="pl-4 pt-2 space-y-2">
-                            <a href="index.html#talent" class="block text-slate-400 hover:text-accent transition-colors text-sm py-2">World Class Musicians</a>
+                            <a href="index.html#talent" class="block text-slate-400 hover:text-accent transition-colors text-sm py-2" data-i18n="nav.artists.world">World Class Musicians</a>
                             <a href="musicians.html" class="block text-slate-400 hover:text-accent transition-colors text-sm py-2">Full Roster</a>
                         </div>
                     </div>
                 </div>
                 
-                <a href="index.html#about" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2">About Us</a>
-                <a href="index.html#contact" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2">Contact</a>
+                <a href="index.html#about" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2" data-i18n="nav.about">About Us</a>
+                <a href="index.html#contact" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2" data-i18n="nav.contact">Contact</a>
                 
-                <button class="w-full bg-accent/10 hover:bg-accent text-accent hover:text-background-dark border border-accent/30 hover:border-accent px-6 py-3 rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-300 mt-4">
+                <button class="w-full bg-accent/10 hover:bg-accent text-accent hover:text-background-dark border border-accent/30 hover:border-accent px-6 py-3 rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-300 mt-4" data-i18n="nav.book">
                     Book Talent
                 </button>
+            <!-- Mobile Language Toggle -->
+                <button class="lang-toggle-btn flex items-center gap-2 text-sm font-bold uppercase tracking-widest border border-accent/30 rounded px-4 py-2 w-full justify-center smooth-hover">
+              <span class="lang-en transition-colors duration-200">EN</span>
+              <span class="text-slate-600">/</span>
+              <span class="lang-hu transition-colors duration-200">HU</span>
+            </button>
             </div>
         </div>
     </nav>
@@ -427,3 +452,4 @@
 
         </script>
     
+<script src="lang.js"></script>
