@@ -123,8 +123,7 @@
             <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover" href="#about" data-i18n="nav.about">About Us</a>
             <!-- Artists Dropdown -->
             <div class="relative group">
-                <button class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover flex items-center gap-1">
-                    Artists
+                <button class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover flex items-center gap-1"><span data-i18n="nav.artists">Artists</span>
                     <span class="material-symbols-outlined text-sm">expand_more</span>
                 </button>
                 
@@ -158,12 +157,11 @@
     <!-- Mobile Menu - INSIDE NAV -->
     <div id="mobileMenu" class="mobile-nav-menu md:hidden bg-background-card backdrop-blur-md border-t border-white overflow-hidden max-h-0 transition-all duration-300 ease-in-out absolute top-full left-0 w-full">
         <div class="px-6 py-6 space-y-4">
-            <a href="#home" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2">Homepage</a>
-            <a href="#about" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2">About Us</a>
+            <a href="#home" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2" data-i18n="nav.home">Homepage</a>
+            <a href="#about" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2" data-i18n="nav.about">About Us</a>
             <!-- Mobile Artists Dropdown -->
             <div>
-                <button id="mobileArtistsToggle" class="w-full flex items-center justify-between text-slate-300 hover:text-accent transition-colors text-base font-medium py-2">
-                    Artists
+                <button id="mobileArtistsToggle" class="w-full flex items-center justify-between text-slate-300 hover:text-accent transition-colors text-base font-medium py-2"><span data-i18n="nav.artists">Artists</span>
                     <span class="material-symbols-outlined text-sm transition-transform duration-300" id="mobileArtistsIcon">expand_more</span>
                 </button>
                 
@@ -200,7 +198,7 @@
             <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHhuM3JwNW1qcmVvamx2ZGdxZDY1NzQ5ZDJmMGhxYzFkZ3loenZ1ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WBO3eC9IbuDBhKMkam/giphy.gif" alt="Ocean waves" class="w-full h-full object-cover scale-105" style="filter: brightness(0.7);">
         </div>
         <div class="relative z-20 container mx-auto px-6 text-center max-w-5xl pt-20">
-    <p class="animate-in delay-200 text-accent font-medium tracking-[0.3em] uppercase text-sm mb-6">
+    <p class="animate-in delay-200 text-accent font-medium tracking-[0.3em] uppercase text-sm mb-6" data-i18n="hero.tagline">
                 Est. Budapest, Hungary
             </p>
             <div class="mb-6 flex justify-center">
@@ -216,7 +214,7 @@
                 
                 <button class="flex items-center gap-2 text-white hover:text-accent px-8 py-4 rounded-lg text-base font-medium smooth-hover">
                     <span class="material-symbols-outlined">play_circle</span>
-                    Watch Showreel
+                    <span data-i18n="hero.showreel">Watch Showreel</span>
                 </button>
             </div>
         </div>
@@ -245,13 +243,13 @@
 <section id="" class="py-24 md:py-32 bg-[#0D1825]">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16 observe-fade">
-            <p class="text-accent font-medium tracking-[0.2em] uppercase text-sm mb-4">
+            <p class="text-accent font-medium tracking-[0.2em] uppercase text-sm mb-4" data-i18n="services.label">
                 What We Offer
             </p>
-            <h2 class="font-serif text-4xl md:text-5xl font-semibold text-slate-100 mb-6">
+            <h2 class="font-serif text-4xl md:text-5xl font-semibold text-slate-100 mb-6" data-i18n="services.title">
                 Our Services
             </h2>
-            <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+            <p class="text-slate-400 text-lg max-w-2xl mx-auto" data-i18n="services.desc">
                 Curating world-class musical experiences for the luxury cruise industry. Bringing elegance and class to every corner of the world.
             </p>
         </div>
@@ -264,10 +262,10 @@
                         <path d="M9 18V5l12-2v13M9 9l12-2M9 18c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm12-2c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                     </svg>
                 </div>
-                <h3 class="font-serif text-xl font-semibold text-slate-100 mb-4">
+                <h3 class="font-serif text-xl font-semibold text-slate-100 mb-4" data-i18n="services.curation.title">
                     Talent Curation
                 </h3>
-                <p class="text-slate-400 leading-relaxed">
+                <p class="text-slate-400 leading-relaxed" data-i18n="services.curation.desc">
                     We've been trusted by the world's largest travel companies, and the best musicians since XXXX. We provide outstanding service with a long list of testimonials.
                 </p>
             </div>
@@ -277,10 +275,10 @@
                 <div class="w-14 h-14 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
                     <span class="material-symbols-outlined text-accent text-3xl">handshake</span>
                 </div>
-                <h3 class="font-serif text-xl font-semibold text-slate-100 mb-4">
+                <h3 class="font-serif text-xl font-semibold text-slate-100 mb-4" data-i18n="services.partner.title">
                     Cruise Partnerships
                 </h3>
-                <p class="text-slate-400 leading-relaxed">
+                <p class="text-slate-400 leading-relaxed" data-i18n="services.partner.desc">
                     Direct relationships with leading cruise lines worldwide, facilitating seamless placements for multi-month contracts.
                 </p>
             </div>
@@ -292,10 +290,10 @@
                         <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                     </svg>
                 </div>
-                <h3 class="font-serif text-xl font-semibold text-slate-100 mb-4">
+                <h3 class="font-serif text-xl font-semibold text-slate-100 mb-4" data-i18n="services.mgmt.title">
                     Artist Management
                 </h3>
-                <p class="text-slate-400 leading-relaxed">
+                <p class="text-slate-400 leading-relaxed" data-i18n="services.mgmt.desc">
                     Full-service management including contracts, travel logistics, visas, and ongoing performance support.
                 </p>
             </div>
@@ -305,10 +303,10 @@
                 <div class="w-14 h-14 bg-accent/10 rounded-lg flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors duration-300">
                     <span class="material-symbols-outlined text-accent text-3xl">verified</span>
                 </div>
-                <h3 class="font-serif text-xl font-semibold text-slate-100 mb-4">
+                <h3 class="font-serif text-xl font-semibold text-slate-100 mb-4" data-i18n="services.trust.title">
                     Trustworthy and Reliable
                 </h3>
-                <p class="text-slate-400 leading-relaxed">
+                <p class="text-slate-400 leading-relaxed" data-i18n="services.trust.desc">
                     We have built a decade long resume with the best musicians and businesses in the hospitality industry.
                 </p>
             </div>
@@ -326,16 +324,16 @@
             <div class="observe-fade-left">
                 <p class="text-accent font-medium tracking-[0.2em] uppercase text-sm mb-4" data-i18n="about.label">About Us</p>
                 <h2 class="font-serif text-4xl md:text-5xl font-semibold text-white mb-6">
-                    The Bridge Between<br>
+                    <span data-i18n="about.title">The Bridge Between</span><br>
                     <span class="text-accent-gradient" data-i18n="about.title.accent">Talent &amp; Opportunity</span>
                 </h2>
-                <p class="text-slate-200 text-lg leading-relaxed mb-6">
+                <p class="text-slate-200 text-lg leading-relaxed mb-6" data-i18n="about.p1">
                     Founded in Budapest, Szabo Music Company has been the premier connection 
                     between exceptional European musicians and the world's most prestigious cruise lines. 
                     Our deep understanding of both the music industry and maritime entertainment 
                     creates unparalleled opportunities for artists and cruise companies alike.
                 </p>
-                <p class="text-slate-400 leading-relaxed mb-8">
+                <p class="text-slate-400 leading-relaxed mb-8" data-i18n="about.p2">
                     Miklos Szabo is a graduate of the Franz Liszt Academy of Music in Budapest, Hungary. He has made his mark as maritime musician performing for industry leading cruise lines, notably Holland America Line, Viking Ocean Cruises, P&amp;O Cruises and Cunard Line. 
                     His decade long experience has taken him around the world and earned him a wealth of insights and connections in the music business.
                     Miklos takes pride in overseeing the development of young musicians, arranging the right position for the right performer and providing professional management to clients.
@@ -346,7 +344,7 @@
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
                             <circle cx="12" cy="10" r="3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle>
                         </svg>
-                        <span class="text-slate-300">Budapest, Hungary</span>
+                        <span class="text-slate-300" data-i18n="about.location">Budapest, Hungary</span>
                     </div>
                     <div class="flex items-center gap-3">
                         <svg class="text-accent" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
@@ -398,13 +396,13 @@
                     <h2 class="text-3xl md:text-4xl mb-4 flex text-white font-serif" data-i18n="talent.title"> World Class Musicians </h2>
 
             <div class=" flex justify-between mb-12">
-<p class="text-slate-300  font-medium text-lg ">
+<p class="text-slate-300  font-medium text-lg " data-i18n="talent.desc">
                     Bringing elegance and class to every corner of the world. 
                 </p>
 
     
                 <a href="./musicians.html" class="hidden sm:inline-flex items-center text-slate-400 hover:text-accent text-sm font-medium smooth-hover">
-                    View Full Roster <span class="material-symbols-outlined ml-1">arrow_right_alt</span>
+                    <span data-i18n="talent.view">View Full Roster</span> <span class="material-symbols-outlined ml-1">arrow_right_alt</span>
                 </a>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -413,7 +411,7 @@
                     <div class="aspect-[4/5] w-full bg-cover bg-top relative" style="background-image: url('./imgs/Julia.jpg');">
                         <div class="absolute inset-0 bg-gradient-to-t from-background-card via-transparent to-transparent opacity-90"></div>
                         <div class="absolute bottom-0 left-0 w-full p-6">
-                            <p class="text-accent text-xs font-bold uppercase tracking-wider mb-1">Soloist</p>
+                            <p class="text-accent text-xs font-bold uppercase tracking-wider mb-1" data-i18n="talent.soloist">Soloist</p>
                             <h3 class="text-white text-2xl font-serif mb-3">Julia</h3>
                            
                         </div>
@@ -425,7 +423,7 @@
                     <div class="aspect-[4/5] w-full bg-cover bg-center relative" style="background-image: url('./imgs/Thomas.jpg');">
                         <div class="absolute inset-0 bg-gradient-to-t from-background-card via-transparent to-transparent opacity-90"></div>
                         <div class="absolute bottom-0 left-0 w-full p-6">
-                            <p class="text-accent text-xs font-bold uppercase tracking-wider mb-1">Pianist</p>
+                            <p class="text-accent text-xs font-bold uppercase tracking-wider mb-1" data-i18n="talent.pianist">Pianist</p>
                             <h3 class="text-white text-2xl font-serif mb-3">Thomas</h3>
                             
                         </div>
@@ -437,7 +435,7 @@
                     <div class="aspect-[4/5] w-full bg-cover bg-top relative" style="background-image: url('./imgs/Sunnymoon duo 2 (1).jpg');">
                         <div class="absolute inset-0 bg-gradient-to-t from-background-card via-transparent to-transparent opacity-90"></div>
                         <div class="absolute bottom-0 left-0 w-full p-6">
-                            <p class="text-accent text-xs font-bold uppercase tracking-wider mb-1">Duo</p>
+                            <p class="text-accent text-xs font-bold uppercase tracking-wider mb-1" data-i18n="talent.duo">Duo</p>
                             <h3 class="text-white text-2xl font-serif mb-3">Sunnymoon</h3>
                             
                         </div>
@@ -449,7 +447,7 @@
                     <div class="aspect-[4/5] w-full bg-cover bg-center relative" style="background-image: url('./imgs/Hanna.jpeg');">
                         <div class="absolute inset-0 bg-gradient-to-t from-background-card via-transparent to-transparent opacity-90"></div>
                         <div class="absolute bottom-0 left-0 w-full p-6">
-                            <p class="text-accent text-xs font-bold uppercase tracking-wider mb-1">Soloist</p>
+                            <p class="text-accent text-xs font-bold uppercase tracking-wider mb-1" data-i18n="talent.soloist">Soloist</p>
                             <h3 class="text-white text-2xl font-serif mb-3">Hanna</h3>
                            
                         </div>
@@ -468,7 +466,7 @@
             <div class="text-center mb-16">
                 <p class="text-accent font-medium tracking-[0.2em] uppercase text-sm mb-4" data-i18n="contact.label">Get In Touch</p>
                 <h2 class="text-3xl md:text-4xl text-white font-serif mb-6" data-i18n="contact.title">Start Your Journey</h2>
-                <p class="text-slate-400 text-lg max-w-2xl mx-auto">
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto" data-i18n="contact.desc">
                     Whether you're a musician seeking opportunities or a cruise line looking for talent, we'd love to hear from you
                 </p>
             </div>
@@ -505,7 +503,7 @@
                             <textarea rows="4" class="w-full bg-background-dark border border-white/10 rounded px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:border-accent transition-colors resize-none" placeholder="Tell us about yourself or your needs..."></textarea>
                         </div>
                         <button type="submit" class="w-full bg-accent hover:bg-accent/90 text-background-dark py-4 rounded font-semibold flex items-center justify-center gap-2 transition-all duration-300">
-                            <span class="material-symbols-outlined">send</span>
+                            <span class="material-symbols-outlined">send</span data-i18n="contact.send">
                             Send Message
                         </button>
                     </form>
@@ -590,7 +588,7 @@
                         <span class="material-symbols-outlined text-accent">anchor</span>
                         <span class="font-bold font-serif text-lg">Szabó Music Company</span>
                     </div>
-                    <p class="text-slate-500 leading-relaxed mb-6">
+                    <p class="text-slate-500 leading-relaxed mb-6" data-i18n="footer.desc">
                         The premier talent agency for the global cruise industry. Connecting luxury fleets with world-class performers since XXXX.
                     </p>
                     <div class="flex gap-4">
@@ -615,25 +613,25 @@
                     </div>
                 </div>
                 <div>
-                    <h5 class="text-white font-serif font-bold mb-4">Company</h5>
+                    <h5 class="text-white font-serif font-bold mb-4" data-i18n="footer.company">Company</h5>
                     <ul class="space-y-3">
                         <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#" data-i18n="footer.company.about">About Us</a></li>
                         <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#" data-i18n="footer.company.careers">Careers</a></li>
                         <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#" data-i18n="footer.company.press">Press</a></li>
-                        <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#contact">Contact</a></li>
+                        <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#contact" data-i18n="footer.company.contact">Contact</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h5 class="text-white font-serif font-bold mb-4">For Talent</h5>
+                    <h5 class="text-white font-serif font-bold mb-4" data-i18n="footer.talent">For Talent</h5>
                     <ul class="space-y-3">
-                        <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">Submit Profile</a></li>
-                        <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">Auditions</a></li>
-                        <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">Artist Resources</a></li>
-                        <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#">FAQs</a></li>
+                        <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#" data-i18n="footer.talent.submit">Submit Profile</a></li>
+                        <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#" data-i18n="footer.talent.auditions">Auditions</a></li>
+                        <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#" data-i18n="footer.talent.resources">Artist Resources</a></li>
+                        <li><a class="text-slate-400 hover:text-accent smooth-hover" href="#" data-i18n="footer.talent.faqs">FAQs</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h5 class="text-white font-serif font-bold mb-4">Contact</h5>
+                    <h5 class="text-white font-serif font-bold mb-4" data-i18n="footer.contact">Contact</h5>
                     <ul class="space-y-3 text-slate-400">
                         <li class="flex items-start gap-3">
                             <span class="material-symbols-outlined text-accent text-sm mt-1">location_on</span>
@@ -653,8 +651,8 @@
             <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-slate-600" data-i18n="footer.copyright">© 2024 Szabo Music Company. All rights reserved.</p>
                 <div class="flex gap-6">
-                    <a class="text-slate-600 hover:text-slate-400 smooth-hover" href="#">Privacy Policy</a>
-                    <a class="text-slate-600 hover:text-slate-400 smooth-hover" href="#">Terms of Service</a>
+                    <a class="text-slate-600 hover:text-slate-400 smooth-hover" href="#" data-i18n="footer.privacy">Privacy Policy</a>
+                    <a class="text-slate-600 hover:text-slate-400 smooth-hover" href="#" data-i18n="footer.terms">Terms of Service</a>
                 </div>
             </div>
         </div>
