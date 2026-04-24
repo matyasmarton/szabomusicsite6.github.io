@@ -83,10 +83,14 @@
         }
 
         nav .mobile-nav-menu.mobile-menu-active {
-            max-height: 600px;
+            max-height: 800px;
         }
 
         nav .mobile-artists-expanded {
+            max-height: 500px;
+        }
+        
+        nav .mobile-nested-expanded {
             max-height: 200px;
         }
         
@@ -124,11 +128,11 @@
     <!-- Navbar -->
     <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-background-dark/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 h-20 flex items-center justify-between gap-3 sm:gap-6">
-            <div class="flex items-center gap-2 sm:gap-3 flex-shrink min-w-0">
+            <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
                 <div class="size-8 text-accent flex-shrink-0">
                     <span class="material-symbols-outlined text-[32px]">anchor</span>
                 </div>
-                <a href="index.html" class="text-white text-lg sm:text-xl font-bold tracking-wide font-serif truncate">Szabó Music Company</a>
+                <a href="index.html" class="text-white text-lg sm:text-xl font-bold tracking-wide font-serif whitespace-nowrap">Szabó Music Company</a>
             </div>
             
             <!-- Desktop Navigation -->
@@ -140,9 +144,30 @@
                     <button class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover flex items-center gap-1 whitespace-nowrap"><span data-i18n="nav.artists">Artists</span>
                         <span class="material-symbols-outlined text-sm">expand_more</span>
                     </button>
-                    <div class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-background-card border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                        <a href="index.html#talent" class="block px-6 py-3 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5" data-i18n="nav.artists.world">World Class Musicians</a>
-                        <a href="musicians.html" class="block px-6 py-3 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium" data-i18n="nav.artists.roster">Full Roster</a>
+                    <div class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-background-card border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 py-2">
+                        <a href="index.html#talent" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5" data-i18n="nav.artists.world">World Class Musicians</a>
+                        
+                        <div class="relative group/resident">
+                            <button class="w-full text-left flex items-center justify-between px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5">
+                                <span>Resident Artists</span>
+                                <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            </button>
+                            <div class="dropdown-submenu absolute top-0 left-full ml-1 w-48 bg-background-card border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover/resident:opacity-100 group-hover/resident:visible transition-all duration-300 z-50 py-2">
+                                <a href="local_artists.html" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium">Local Artists</a>
+                            </div>
+                        </div>
+
+                        <div class="relative group/roster">
+                            <button class="w-full text-left flex items-center justify-between px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium">
+                                <span data-i18n="nav.artists.roster">Full roster</span>
+                                <span class="material-symbols-outlined text-sm">chevron_right</span>
+                            </button>
+                            <div class="dropdown-submenu absolute top-0 left-full ml-1 w-48 bg-background-card border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover/roster:opacity-100 group-hover/roster:visible transition-all duration-300 z-50 py-2">
+                                <a href="soloists.html" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5">Soloists</a>
+                                <a href="duos.html" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5">Duos</a>
+                                <a href="bands.html" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium">Bands</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
@@ -180,7 +205,32 @@
                     <div id="mobileArtistsMenu" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                         <div class="pl-4 pt-2 space-y-2">
                             <a href="index.html#talent" class="block text-slate-400 hover:text-accent transition-colors text-sm py-2" data-i18n="nav.artists.world">World Class Musicians</a>
-                            <a href="musicians.html" class="block text-slate-400 hover:text-accent transition-colors text-sm py-2" data-i18n="nav.artists.roster">Full Roster</a>
+                            
+                            <div>
+                                <button id="mobileResidentToggle" class="w-full flex items-center justify-between text-slate-400 hover:text-accent transition-colors text-sm py-2">
+                                    <span>Resident Artists</span>
+                                    <span class="material-symbols-outlined text-sm transition-transform duration-300" id="mobileResidentIcon">expand_more</span>
+                                </button>
+                                <div id="mobileResidentMenu" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                    <div class="pl-4 space-y-2 pb-2">
+                                        <a href="local_artists.html" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Local Artists</a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <button id="mobileRosterToggle" class="w-full flex items-center justify-between text-slate-400 hover:text-accent transition-colors text-sm py-2">
+                                    <span data-i18n="nav.artists.roster">Full roster</span>
+                                    <span class="material-symbols-outlined text-sm transition-transform duration-300" id="mobileRosterIcon">expand_more</span>
+                                </button>
+                                <div id="mobileRosterMenu" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                                    <div class="pl-4 space-y-2 pb-2">
+                                        <a href="soloists.html" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Soloists</a>
+                                        <a href="duos.html" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Duos</a>
+                                        <a href="bands.html" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Bands</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -335,7 +385,7 @@
                         <span class="font-bold font-serif text-lg">Szabó Music Company</span>
                     </div>
                     <p class="text-slate-500 leading-relaxed mb-6" data-i18n="footer.desc">
-                        The premier talent agency for the global cruise industry. Connecting luxury fleets with world-class performers since XXXX.
+                        The premier talent agency for the global cruise industry. Connecting luxury fleets with world-class performers.
                     </p>
                     <div class="flex gap-4">
                         <a class="text-slate-400 hover:text-accent smooth-hover" href="#">
@@ -402,6 +452,12 @@
                 </div>
             </div>
         </div>
+
+            <!-- Designer Credit -->
+            <div class="border-t border-white/5 pt-6 mt-2 text-center">
+                <p class="text-slate-500 text-xs tracking-wide">Site designed by <span class="text-accent/70">Mátyás Marton</span> &nbsp;·&nbsp; +36706205813 &nbsp;·&nbsp; <a href="https://martonweb.net" class="hover:text-accent transition-colors" target="_blank">martonweb.net</a></p>
+            </div>
+        </div>
     </footer>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
@@ -425,13 +481,49 @@
                 ? 'rotate(180deg)' 
                 : 'rotate(0deg)';
         });
+
+        const mobileResidentToggle = document.getElementById('mobileResidentToggle');
+        const mobileResidentMenu = document.getElementById('mobileResidentMenu');
+        const mobileResidentIcon = document.getElementById('mobileResidentIcon');
+        
+        if (mobileResidentToggle && mobileResidentMenu && mobileResidentIcon) {
+            mobileResidentToggle.addEventListener('click', () => {
+                mobileResidentMenu.classList.toggle('mobile-nested-expanded');
+                mobileResidentIcon.style.transform = mobileResidentMenu.classList.contains('mobile-nested-expanded') 
+                    ? 'rotate(180deg)' : 'rotate(0deg)';
+                
+                if (mobileResidentMenu.classList.contains('mobile-nested-expanded')) {
+                    mobileArtistsMenu.style.maxHeight = '600px';
+                }
+            });
+        }
+
+        const mobileRosterToggle = document.getElementById('mobileRosterToggle');
+        const mobileRosterMenu = document.getElementById('mobileRosterMenu');
+        const mobileRosterIcon = document.getElementById('mobileRosterIcon');
+        
+        if (mobileRosterToggle && mobileRosterMenu && mobileRosterIcon) {
+            mobileRosterToggle.addEventListener('click', () => {
+                mobileRosterMenu.classList.toggle('mobile-nested-expanded');
+                mobileRosterIcon.style.transform = mobileRosterMenu.classList.contains('mobile-nested-expanded') 
+                    ? 'rotate(180deg)' : 'rotate(0deg)';
+                    
+                if (mobileRosterMenu.classList.contains('mobile-nested-expanded')) {
+                    mobileArtistsMenu.style.maxHeight = '600px';
+                }
+            });
+        }
         
         // Close mobile menu when clicking on a link
         const mobileLinks = mobileMenu.querySelectorAll('a');
         mobileLinks.forEach(link => {
             link.addEventListener('click', () => {
-                mobileMenu.classList.remove('mobile-menu-active'
+                mobileMenu.classList.remove('mobile-menu-active');
+            });
+        });
 
-        </script>
+    </script>
+    <script src="lang.js"></script>
+</body>
+</html>
     
-<script src="lang.js"></script>
