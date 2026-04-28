@@ -151,9 +151,9 @@
                                 <span class="material-symbols-outlined text-sm">chevron_right</span>
                             </button>
                             <div class="dropdown-submenu absolute top-0 left-full ml-1 w-48 bg-background-card border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover/roster:opacity-100 group-hover/roster:visible transition-all duration-300 z-50 py-2">
-                                <a href="soloists.html" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5">Soloists</a>
-                                <a href="duos.html" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5">Duos</a>
-                                <a href="bands.html" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium">Bands</a>
+                                <a href="soloists.html" data-i18n="nav.artists.soloists" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5">Soloists</a>
+                                <a href="duos.html" data-i18n="nav.artists.duos" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5">Duos</a>
+                                <a href="bands.html" data-i18n="nav.artists.bands" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium">Bands</a>
                             </div>
                         </div>
                     </div>
@@ -190,30 +190,19 @@
                     </button>
                     <div id="mobileArtistsMenu" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                         <div class="pl-4 pt-2 space-y-2">
-                            <a href="index.html#talent" class="block text-slate-400 hover:text-accent transition-colors text-sm py-2" data-i18n="nav.artists.world">World Class Musicians</a>
-                            
-                            <div>
-                                <button id="mobileResidentToggle" class="w-full flex items-center justify-between text-slate-400 hover:text-accent transition-colors text-sm py-2">
-                                    <span>Resident Artists</span>
-                                    <span class="material-symbols-outlined text-sm transition-transform duration-300" id="mobileResidentIcon">expand_more</span>
-                                </button>
-                                <div id="mobileResidentMenu" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                                    <div class="pl-4 space-y-2 pb-2">
-                                        <a href="local_artists.html" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Local Artists</a>
-                                    </div>
-                                </div>
-                            </div>
+                            <a href="./local_artists.html" class="block text-slate-400 hover:text-accent transition-colors text-sm py-2" data-i18n="nav.artists.resident">Resident Artists</a>
+                           
                             
                             <div>
                                 <button id="mobileRosterToggle" class="w-full flex items-center justify-between text-slate-400 hover:text-accent transition-colors text-sm py-2">
                                     <span data-i18n="nav.artists.roster">Full Roster</span>
-                                    <span class="material-symbols-outlined text-sm transition-transform duration-300" id="mobileRosterIcon">expand_more</span>
+                                    <span data-i18n="nav.mobile.expand" class="material-symbols-outlined text-sm transition-transform duration-300" id="mobileRosterIcon">expand_more</span>
                                 </button>
                                 <div id="mobileRosterMenu" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                                     <div class="pl-4 space-y-2 pb-2">
-                                        <a href="soloists.html" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Soloists</a>
-                                        <a href="duos.html" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Duos</a>
-                                        <a href="bands.html" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Bands</a>
+                                        <a href="soloists.html" data-i18n="nav.artists.soloists" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Soloists</a>
+                                        <a href="duos.html" data-i18n="nav.artists.duos" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Duos</a>
+                                        <a href="bands.html" data-i18n="nav.artists.bands" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Bands</a>
                                     </div>
                                 </div>
                             </div>
@@ -551,27 +540,31 @@
         </div>
        <div class="relative flex overflow-hidden" style="pointer-events: none;">
             <div id="logoTrack" class="logo-scroll flex items-center gap-16 px-8 whitespace-nowrap">
-    <img src="./logos/Princess_Cruises_Wordmark.svg" alt="Princess Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
-    <img src="./logos/Celebrity-Cruises-Logo.svg" alt="Celebrity Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
-    <img src="./logos/Viking_River_Cruises_logo.svg" alt="Viking Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
-    <img src="./logos/P&amp;O_Cruises_Australia.svg" alt="P&amp;O Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
-    <img src="./logos/HollandAmerica_Logo.svg" alt="Holland America" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
-    <img src="./logos/Cunard_Line_Logo.svg" alt="Cunard Line" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/apt.svg" alt="Princess Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/crystal-cruises.svg" alt="Crystal Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/four-seasons-resorts-and-club.svg" alt="Four Seasons Resorts and Club" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/norwegian-cruise-line-1.svg" alt="Norwegian Cruise Line" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/royal-caribbean.svg" alt="Royal Caribbean" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/seabourn.svg" alt="Seabourn" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/silversea-1.svg" alt="Silversea" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+
 </div>
 <div class="logo-scroll flex items-center gap-16 px-8 whitespace-nowrap" aria-hidden="true">
-    <img src="./logos/Princess_Cruises_Wordmark.svg" alt="Princess Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
-    <img src="./logos/Celebrity-Cruises-Logo.svg" alt="Celebrity Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
-    <img src="./logos/Viking_River_Cruises_logo.svg" alt="Viking Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
-    <img src="./logos/P&amp;O_Cruises_Australia.svg" alt="P&amp;O Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
-    <img src="./logos/HollandAmerica_Logo.svg" alt="Holland America" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
-    <img src="./logos/Cunard_Line_Logo.svg" alt="Cunard Line" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/apt.svg" alt="Princess Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/crystal-cruises.svg" alt="Crystal Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/four-seasons-resorts-and-club.svg" alt="Four Seasons Resorts and Club" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/norwegian-cruise-line-1.svg" alt="Norwegian Cruise Line" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/royal-caribbean.svg" alt="Royal Caribbean" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/seabourn.svg" alt="Seabourn" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/silversea-1.svg" alt="Silversea" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
 </div><div class="logo-scroll flex items-center gap-16 px-8 whitespace-nowrap" aria-hidden="true">
-    <img src="./logos/Princess_Cruises_Wordmark.svg" alt="Princess Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
-    <img src="./logos/Celebrity-Cruises-Logo.svg" alt="Celebrity Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
-    <img src="./logos/Viking_River_Cruises_logo.svg" alt="Viking Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
-    <img src="./logos/P&amp;O_Cruises_Australia.svg" alt="P&amp;O Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
-    <img src="./logos/HollandAmerica_Logo.svg" alt="Holland America" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
-    <img src="./logos/Cunard_Line_Logo.svg" alt="Cunard Line" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+   <img src="./logos/apt.svg" alt="Princess Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/crystal-cruises.svg" alt="Crystal Cruises" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/four-seasons-resorts-and-club.svg" alt="Four Seasons Resorts and Club" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/norwegian-cruise-line-1.svg" alt="Norwegian Cruise Line" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/royal-caribbean.svg" alt="Royal Caribbean" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/seabourn.svg" alt="Seabourn" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
+    <img src="./logos/silversea-1.svg" alt="Silversea" class="h-12 w-auto max-w-[180px] object-contain flex-shrink-0 opacity-75" style="filter: brightness(0) invert(1);">
 </div></div>
     </section>
     <!-- Footer -->
