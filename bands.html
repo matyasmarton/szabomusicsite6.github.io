@@ -136,105 +136,114 @@
 <body class="bg-background-dark text-slate-100 overflow-x-hidden selection:bg-accent selection:text-white">
  
     <!-- ═══════ NAVBAR ═══════════════════════════════════════════ -->
-    <nav class="fixed top-0 w-full z-50 bg-background-dark/80 backdrop-blur-md border-b border-white/5">
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300 bg-background-dark/80 backdrop-blur-md border-b border-white/5">
         <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-12 h-20 flex items-center justify-between gap-3 sm:gap-6">
             <div class="flex items-center gap-2 sm:gap-3 flex-shrink-0">
-                <div class="size-8 text-accent flex-shrink-0"><span class="material-symbols-outlined text-[32px]">anchor</span></div>
-                <a href="../index.html" class="text-white text-lg sm:text-xl font-bold tracking-wide font-serif whitespace-nowrap">Szabó Music Company</a>
-            </div>
+    <div class="size-8 text-accent flex-shrink-0">
+        <span class="material-symbols-outlined text-[32px]">anchor</span>
+    </div>
+    <a href="index.html" class="text-white text-lg sm:text-xl font-bold tracking-wide font-serif whitespace-nowrap">
+        Szabó Music Company
+    </a>
+</div>
+            
+            <!-- Desktop Navigation -->
             <div class="hidden lg:flex items-center gap-8 flex-1 justify-center">
-                <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover whitespace-nowrap" href="/index.html" data-i18n="nav.home">Homepage</a>                <!-- Artists Dropdown -->
+                <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover whitespace-nowrap" href="./index.html#home" data-i18n="nav.home">Homepage</a>
+                
+                <!-- Artists Dropdown -->
                 <div class="relative group">
                     <button class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover flex items-center gap-1 whitespace-nowrap"><span data-i18n="nav.artists">Artists</span>
                         <span class="material-symbols-outlined text-sm">expand_more</span>
                     </button>
                     <div class="dropdown-menu absolute top-full left-0 mt-2 w-56 bg-background-card border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 py-2">
-                        <a href="../index.html#talent" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5" data-i18n="nav.artists.world">World Class Musicians</a>
+                        
                         
                         <div class="relative group/resident">
-                            <button class="w-full text-left flex items-center justify-between px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5">
-                                <span>Resident Artists</span>
-                                <span class="material-symbols-outlined text-sm">chevron_right</span>
-                            </button>
-                            <div class="dropdown-submenu absolute top-0 left-full ml-1 w-48 bg-background-card border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover/resident:opacity-100 group-hover/resident:visible transition-all duration-300 z-50 py-2">
-                                <a href="local_artists.html" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium">Local Artists</a>
-                            </div>
+                            <a data-i18n="nav.artists.resident" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5" href="./local_artists.html"> Resident Artists
+                               
+                            </a>
+                            
                         </div>
 
                         <div class="relative group/roster">
                             <button class="w-full text-left flex items-center justify-between px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium">
-                                <span data-i18n="nav.artists.roster">Full roster</span>
+                                <span data-i18n="nav.artists.roster">Full Roster</span>
                                 <span class="material-symbols-outlined text-sm">chevron_right</span>
                             </button>
                             <div class="dropdown-submenu absolute top-0 left-full ml-1 w-48 bg-background-card border border-white/10 rounded-lg shadow-xl opacity-0 invisible group-hover/roster:opacity-100 group-hover/roster:visible transition-all duration-300 z-50 py-2">
-                                <a href="soloists.html" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5">Soloists</a>
-                                <a href="duos.html" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5">Duos</a>
-                                <a href="bands.html" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium">Bands</a>
+                                <a href="soloists.html" data-i18n="nav.artists.soloists" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5">Soloists</a>
+                                <a href="duos.html" data-i18n="nav.artists.duos" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium border-b border-white/5">Duos</a>
+                                <a href="bands.html" data-i18n="nav.artists.bands" class="block px-6 py-2 text-slate-300 hover:text-accent hover:bg-white/5 transition-colors text-sm font-medium">Bands</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover whitespace-nowrap" href="../index.html#about" data-i18n="nav.about">About Us</a>
-                <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover whitespace-nowrap" href="../index.html#contact" data-i18n="nav.contact">Contact</a>
+                
+                <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover whitespace-nowrap" href="index.html#about" data-i18n="nav.about">About Us</a>
+                <a class="text-slate-300 hover:text-accent text-sm font-medium uppercase tracking-widest smooth-hover whitespace-nowrap" href="index.html#contact" data-i18n="nav.contact">Contact</a>
             </div>
+            
             <!-- Language Toggle -->
             <button class="lang-toggle-btn flex items-center gap-1 text-xs font-bold uppercase tracking-widest border border-accent/30 hover:border-accent/60 rounded px-2 py-1 smooth-hover" aria-label="Switch language">
-              <span class="lang-en transition-colors duration-200">EN</span>
+              <span class="lang-en transition-colors duration-200 lang-active">EN</span>
               <span class="text-slate-600">/</span>
               <span class="lang-hu transition-colors duration-200">HU</span>
             </button>
-            <button class="bg-accent/10 hover:bg-accent text-accent hover:text-background-dark border border-accent/30 hover:border-accent px-6 py-2 rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-500 hidden lg:block flex-shrink-0" data-i18n="nav.book">Book Talent</button>
-            <button id="mobileMenuBtn" class="lg:hidden text-white flex-shrink-0 p-2 -mr-2"><span class="material-symbols-outlined">menu</span></button>
+            
+            <button class="bg-accent/10 hover:bg-accent text-accent hover:text-background-dark border border-accent/30 hover:border-accent px-6 py-2 rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-500 hidden lg:block flex-shrink-0 whitespace-nowrap" data-i18n="nav.book">Book Talent</button>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobileMenuBtn" class="lg:hidden text-white flex-shrink-0 p-2 -mr-2">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
         </div>
-        <div id="mobileMenu" class="mobile-nav-menu lg:hidden bg-background-card/95 backdrop-blur-md border-t border-white/5 overflow-hidden max-h-0 absolute top-full left-0 w-full">
+        
+        <!-- Mobile Menu - INSIDE NAV -->
+        <div id="mobileMenu" class="mobile-nav-menu lg:hidden bg-background-card/95 backdrop-blur-md border-t border-white/5 overflow-hidden max-h-0 transition-all duration-300 ease-in-out absolute top-full left-0 w-full">
             <div class="px-6 py-6 space-y-4">
-                <a href="index.html" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2" data-i18n="nav.home">Homepage</a>
+                <a href="index.html#home" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2" data-i18n="nav.home">Homepage</a>
+                
+                <!-- Mobile Artists Dropdown -->
                 <div>
-                    <button id="mobileArtistsToggle" class="w-full flex items-center justify-between text-accent text-base font-medium py-2"><span data-i18n="nav.artists">Artists</span> <span class="material-symbols-outlined text-sm" id="mobileArtistsIcon">expand_more</span></button>
+                    <button id="mobileArtistsToggle" class="w-full flex items-center justify-between text-slate-300 hover:text-accent transition-colors text-base font-medium py-2"><span data-i18n="nav.artists">Artists</span>
+                        <span class="material-symbols-outlined text-sm transition-transform duration-300" id="mobileArtistsIcon">expand_more</span>
+                    </button>
                     <div id="mobileArtistsMenu" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                         <div class="pl-4 pt-2 space-y-2">
-                            <a href="../index.html#talent" class="block text-slate-400 hover:text-accent text-sm py-2" data-i18n="nav.artists.world">World Class Musicians</a>
-                            
-                            <div>
-                                <button id="mobileResidentToggle" class="w-full flex items-center justify-between text-slate-400 hover:text-accent transition-colors text-sm py-2">
-                                    <span>Resident Artists</span>
-                                    <span class="material-symbols-outlined text-sm transition-transform duration-300" id="mobileResidentIcon">expand_more</span>
-                                </button>
-                                <div id="mobileResidentMenu" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                                    <div class="pl-4 space-y-2 pb-2">
-                                        <a href="local_artists.html" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Local Artists</a>
-                                    </div>
-                                </div>
-                            </div>
+                            <a href="./local_artists.html" class="block text-slate-400 hover:text-accent transition-colors text-sm py-2" data-i18n="nav.artists.resident">Resident Artists</a>
+                           
                             
                             <div>
                                 <button id="mobileRosterToggle" class="w-full flex items-center justify-between text-slate-400 hover:text-accent transition-colors text-sm py-2">
-                                    <span data-i18n="nav.artists.roster">Full roster</span>
-                                    <span class="material-symbols-outlined text-sm transition-transform duration-300" id="mobileRosterIcon">expand_more</span>
+                                    <span data-i18n="nav.artists.roster">Full Roster</span>
+                                    <span data-i18n="nav.mobile.expand" class="material-symbols-outlined text-sm transition-transform duration-300" id="mobileRosterIcon">expand_more</span>
                                 </button>
                                 <div id="mobileRosterMenu" class="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
                                     <div class="pl-4 space-y-2 pb-2">
-                                        <a href="soloists.html" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Soloists</a>
-                                        <a href="duos.html" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Duos</a>
-                                        <a href="bands.html" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Bands</a>
+                                        <a href="soloists.html" data-i18n="nav.artists.soloists" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Soloists</a>
+                                        <a href="duos.html" data-i18n="nav.artists.duos" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Duos</a>
+                                        <a href="bands.html" data-i18n="nav.artists.bands" class="block text-slate-500 hover:text-accent transition-colors text-sm py-2">Bands</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a href="../index.html#about" class="block text-slate-300 hover:text-accent text-base font-medium py-2" data-i18n="nav.about">About Us</a>
-                <a href="../index.html#contact" class="block text-slate-300 hover:text-accent text-base font-medium py-2" data-i18n="nav.contact">Contact</a>
-                <button class="w-full bg-accent/10 hover:bg-accent text-accent hover:text-background-dark border border-accent/30 px-6 py-3 rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-300 mt-4" data-i18n="nav.book">Book Talent</button>
+                
+                <a href="index.html#about" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2" data-i18n="nav.about">About Us</a>
+                <a href="index.html#contact" class="block text-slate-300 hover:text-accent transition-colors text-base font-medium py-2" data-i18n="nav.contact">Contact</a>
+                
+                <button class="w-full bg-accent/10 hover:bg-accent text-accent hover:text-background-dark border border-accent/30 hover:border-accent px-6 py-3 rounded-lg text-sm font-bold tracking-wide uppercase transition-all duration-300 mt-4" data-i18n="nav.book">Book Talent</button>
+            <!-- Mobile Language Toggle -->
                 <button class="lang-toggle-btn flex items-center gap-2 text-sm font-bold uppercase tracking-widest border border-accent/30 rounded px-4 py-2 w-full justify-center smooth-hover">
-                  <span class="lang-en transition-colors duration-200">EN</span>
-                  <span class="text-slate-600">/</span>
-                  <span class="lang-hu transition-colors duration-200">HU</span>
-                </button>
+              <span class="lang-en transition-colors duration-200 lang-active">EN</span>
+              <span class="text-slate-600">/</span>
+              <span class="lang-hu transition-colors duration-200">HU</span>
+            </button>
             </div>
         </div>
-    </nav>
- 
+    </nav> 
     <!-- ═══════ HERO ══════════════════════════════════════════════ -->
     <section class="pt-32 pb-14 bg-background-dark">
         <div class="max-w-[1200px] mx-auto px-6">
